@@ -6,11 +6,12 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 11:29:45 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/07 14:19:56 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/10 15:40:32 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 
 int main(int ac, char **av)
 {
@@ -20,19 +21,20 @@ int main(int ac, char **av)
 	i = 1;
 	if (ac == 1)
 	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *"<<  std::endl;
 		return (0);
 	}
 	while (av[i])
 	{
+		std::string str = av[i];
 		j = 0;
-		while (av[i][j])
+		while (str[j])
 		{
-			std::cout << (char)toupper(av[i][j]);
+			std::cout << (char)std::toupper(str[j]);
 			j++;
 		}
 		i++;
 	}
-	std::cout << "\n";
+	std::cout << "" << std::endl;
 	return (0);
 }
