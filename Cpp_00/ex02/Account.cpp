@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:57:10 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/11 01:01:02 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/11 14:31:17 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,85 +17,105 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-Account::Account()
-{
-	
-}
-
 Account::Account(int initial_deposit)
 {
-	_accountIndex = Account::_nbAccounts;
+	_accountIndex = _nbAccounts;
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << initial_deposit << ";created" << std::endl;
 	_amount = initial_deposit;
-	Account::_totalAmount += initial_deposit;
-	Account::_nbAccounts++;
+	_totalAmount += initial_deposit;
+	_nbAccounts++;
 }
 
 Account::~Account()
 {
-	
+	_displayTimestamp();
+	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
 }
 
 int Account::getNbAccounts()
 {
-	return (0);
+	return (_nbAccounts);
 }
 
 int Account::getTotalAmount()
 {
-	return (0);
+	return (_totalAmount);
 }
 
 int Account::getNbDeposits()
 {
-	return (0);
+	return (_totalNbDeposits);
 }
 
 int Account::getNbWithdrawals()
 {
-	return (0);
+	return (_totalNbWithdrawals);
 }
 
 void Account::displayAccountsInfos()
 {
-	std::cout << "accounts:" << Account::_nbAccounts << ";total:" << Account::_totalAmount << ";deposits:" << Account::_totalNbDeposits << ";withdrawals:" << Account::_totalNbWithdrawals << std::endl;
+	_displayTimestamp();
+	std::cout << "accounts:" << getNbAccounts() << ";total:" << getTotalAmount() << ";deposits:" << getNbDeposits() << ";withdrawals:" << getNbWithdrawals() << std::endl;
 }
 
 void Account::makeDeposit(int deposit)
 {
 	_nbDeposits++;
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";deposit:" << deposit << ";amount:" << _amount + deposit << ";nb_deposits:" << _nbDeposits << std::endl;
 	_amount += deposit;
-	Account::_totalAmount += deposit;
-	Account::_totalNbDeposits++;
+	_totalAmount += deposit;
+	_totalNbDeposits++;
 }
 
 bool Account::makeWithdrawal(int withrawal)
 {
-	if (_amount - withrawal > 0)
+	_displayTimestamp();
+	int	p_amount = _amount;
+	_amount -= withrawal;
+	if (checkAmount())
 	{
 		_nbWithdrawals++;
-		std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";withdrawal:" << withrawal << ";amount:" << _amount - withrawal << ";nb_deposits:" << _nbWithdrawals << std::endl;
-		_amount -= withrawal;
-		Account::_totalAmount -= withrawal;
-		Account::_totalNbWithdrawals++;
+		std::cout << "index:" << _accountIndex << ";p_amount:" << p_amount << ";withdrawal:" << withrawal << ";amount:" << _amount << ";nb_withdrawals:" << _nbWithdrawals << std::endl;
+		_totalAmount -= withrawal;
+		_totalNbWithdrawals++;
 		return (true);
 	}
+	_amount = p_amount;
 	std::cout << "index:" << _accountIndex << ";p_amount:" << _amount << ";withdrawal:refused" << std::endl;
 	return (false);
 }
 
 int Account::checkAmount() const
 {
-	return (0);	
+	if (_amount < 0)
+		return (0);
+	return (1);
 }
 
 void Account::displayStatus() const
 {
+	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << std::endl;
+}
+
+std::string append_z(int i)
+{
+	if (i < 10)
+		return ("0");
+	return ("");
 }
 
 void Account::_displayTimestamp()
 {
-	
+	time_t now = time(NULL);
+	std::tm *ok = std::localtime(&now);
+
+  	std::cout << "[" << ok->tm_year + 1900;
+ 	std::cout << append_z(ok->tm_mon) << ok->tm_mon;
+  	std::cout << append_z(ok->tm_mday) << ok->tm_mday;
+  	std::cout << "_" << append_z(ok->tm_hour) << ok->tm_hour;
+  	std::cout << append_z(ok->tm_min) << ok->tm_min;
+  	std::cout << append_z(ok->tm_sec) << ok->tm_sec << "] ";
 }
