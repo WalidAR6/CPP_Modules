@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:18:48 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/13 22:52:49 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/14 09:23:05 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Zombie::Zombie()
 
 Zombie::~Zombie()
 {
-
+	std::cout << "Zombie " << get_name() << " destroyed" << std::endl;
 }
 
 void Zombie::announce()

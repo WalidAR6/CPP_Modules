@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:18:44 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/13 22:50:01 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/14 09:06:01 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void Zombie::randomChump(std::string name)
 {
-	Zombie *newZombie = new Zombie;
-	newZombie->set_name(name);
-	newZombie->announce();
+	Zombie newZombie;
+	newZombie.set_name(name);
+	newZombie.announce();
 }
