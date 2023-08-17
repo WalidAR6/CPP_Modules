@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/13 19:18:06 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/14 11:46:32 by waraissi         ###   ########.fr       */
+/*   Created: 2023/08/14 09:57:26 by waraissi          #+#    #+#             */
+/*   Updated: 2023/08/14 12:22:10 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie *newZombie(std::string name)
+int main()
 {
-	Zombie *newZombie = new Zombie;
-	newZombie->set_name(name);
-	return (newZombie);
+	Zombie *z = zombieHorde(5, "lf9ih");
+	delete [] z;
 }

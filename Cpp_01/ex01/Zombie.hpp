@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/13 19:18:06 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/14 11:46:32 by waraissi         ###   ########.fr       */
+/*   Created: 2023/08/14 09:57:20 by waraissi          #+#    #+#             */
+/*   Updated: 2023/08/14 12:22:18 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef M_BRAINZ_H
+# define M_BRAINZ_H
 
-Zombie *newZombie(std::string name)
+#include <iostream>
+
+class Zombie
 {
-	Zombie *newZombie = new Zombie;
-	newZombie->set_name(name);
-	return (newZombie);
-}
+	private:
+		std::string name;
+	public:
+		Zombie();
+		~Zombie();
+		
+		void			announce();
+		void			set_name(std::string name);
+		std::string		get_name();
+};
+
+Zombie	*zombieHorde(int N, std::string name);	
+
+#endif

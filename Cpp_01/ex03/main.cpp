@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/13 19:18:06 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/14 11:46:32 by waraissi         ###   ########.fr       */
+/*   Created: 2023/08/14 16:08:44 by waraissi          #+#    #+#             */
+/*   Updated: 2023/08/17 14:53:35 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-Zombie *newZombie(std::string name)
+int main()
 {
-	Zombie *newZombie = new Zombie;
-	newZombie->set_name(name);
-	return (newZombie);
+	{
+		Weapon club = Weapon("crude spiked club");
+
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.set_type("some other type of club");
+		bob.attack();	
+	}
+	{
+		Weapon club = Weapon("crude spiked club");
+		
+		HumanB jim("jim");
+		jim.set_weapon(club);
+		jim.attack();
+		club.set_type("some other type of club");
+		jim.attack();	
+	}
 }
+

@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/13 19:18:48 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/14 12:17:51 by waraissi         ###   ########.fr       */
+/*   Created: 2023/08/14 16:10:20 by waraissi          #+#    #+#             */
+/*   Updated: 2023/08/17 14:53:19 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-Zombie::Zombie(){}
-
-Zombie::~Zombie()
+HumanB::HumanB(std::string name): name(name)
 {
-	std::cout << "Zombie " << get_name() << " destroyed" << std::endl;
+	this->weapon = NULL;
 }
 
-void Zombie::announce()
-{
-	std::cout << get_name() << ": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+HumanB::~HumanB(){}
 
-void Zombie::set_name(std::string name)
+void HumanB::set_name(std::string name)
 {
 	this->name = name;
 }
 
-std::string Zombie::get_name()
+std::string HumanB::get_name()
 {
-	return(name);
+	return (name);
+}
+
+void HumanB::set_weapon(Weapon& wea)
+{
+	this->weapon = &wea;
+}
+
+void HumanB::attack()
+{
+	if (weapon->get_typer())
+		std::cout << get_name() << " attacks with their " << *(weapon->get_typer()) << std::endl;
 }
