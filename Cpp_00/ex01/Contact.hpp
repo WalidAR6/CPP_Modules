@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:49:58 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/10 20:15:19 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:18:06 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define CONTACT_H
 
 # include <iostream>
+# include <iomanip>
+# include <sstream>
 
 class Contact
 {

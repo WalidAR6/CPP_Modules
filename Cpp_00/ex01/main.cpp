@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:10:34 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/10 18:09:15 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:14:21 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,17 @@ int main()
 		std::getline(std::cin, line);
 		if (std::cin.fail())
 			return (0);
-		if (line == "Exit")
+		if (line == "exit" || line == "e")
+		{
 			p_b.exit();
-		else if (line == "Add")
+			return (0);
+		}
+		else if (line == "add" || line == "a")
 		{
 			p_b.add(i);
 			i++;
 		}
-		else if (line == "Search")
+		else if (line == "search" || line == "s")
 			p_b.search();
 		else
 			std::cout << "Invalid option" << std::endl;

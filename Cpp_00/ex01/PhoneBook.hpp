@@ -6,15 +6,13 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:29:10 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/10 20:51:02 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:17:54 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONE_BOOK_H
 # define PHONE_BOOK_H
 
-# include <iostream>
-# include <iomanip>
 # include "Contact.hpp"
 
 class PhoneBook

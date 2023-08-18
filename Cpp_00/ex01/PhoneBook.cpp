@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:57:58 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/10 20:50:57 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/18 17:12:54 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ PhoneBook::~PhoneBook()
 void PhoneBook::search()
 {
 	std::string search;
-	
+	std::string id;
+	std::stringstream ss;
+
 	std::cout << "---------------------------------------------" << std::endl;
 	std::cout << "|        id|    f_name|    l_name|  nickname|" << std::endl;
 	std::cout << "---------------------------------------------" << std::endl;
@@ -43,7 +45,9 @@ void PhoneBook::search()
 	{
 		if (search.empty())
 			return ;
-		if (search == arr[i].get_f_name())
+		ss << arr[i].get_id();
+		ss >> id;
+		if (search == id)
 		{
 			std::cout << "Contact found" << std::endl;
 			std::cout << "---------------------------------------------" << std::endl;
@@ -56,6 +60,7 @@ void PhoneBook::search()
 			std::cout << "---------------------------------------------" << std::endl;
 			return ;
 		}
+		ss.clear();
 	}
 	std::cout << "Contact not found" << std::endl;
 }
@@ -94,7 +99,6 @@ void PhoneBook::add(int i)
 void PhoneBook::exit()
 {
 	std::cout << "Exit!" << std::endl;
-	std::exit(0);
 }
 
 void PhoneBook::set_contact_id()

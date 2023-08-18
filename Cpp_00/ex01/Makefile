@@ -12,10 +12,10 @@ OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o:%.cpp
+%.o:%.cpp PhoneBook.hpp Contact.hpp
 	$(CC) $(FLAG) -c $< -o $@
 
-$(NAME):$(OBJ) PhoneBook.hpp Contact.hpp
+$(NAME):$(OBJ)
 	$(CC) $(FLAG) $(OBJ) -o $(NAME)
 
 clean:
@@ -27,6 +27,6 @@ fclean: clean
 run: all
 	@./$(NAME)
 
-re: clean fclean
+re: clean fclean all
 
 .PHONY: all re fclean clean
