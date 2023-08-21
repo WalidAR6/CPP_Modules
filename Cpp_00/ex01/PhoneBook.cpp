@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:57:58 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/18 17:12:54 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/21 03:34:41 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,13 @@ PhoneBook::PhoneBook()
 	set_contact_id();	
 }
 
-PhoneBook::~PhoneBook()
-{	
+PhoneBook::~PhoneBook(){}
+
+std::string trim_word(std::string word)
+{
+	if (word.length() > 10)
+		return (word.substr(0, 9) + ".");
+	return (word);
 }
 
 void PhoneBook::search()
@@ -33,10 +38,9 @@ void PhoneBook::search()
 	for (int i = 0; i < 8; i++)
 	{
 		std::cout << "|" << std::setw(10) << arr[i].get_id() << "|";
-		std::cout << std::setw(10) << arr[i].get_f_name() << "|";
-		std::cout << std::setw(10) << arr[i].get_l_name() << "|";
-		std::cout << std::setw(10) << arr[i].get_n_name() << "|" << std::endl;
-		
+		std::cout << std::setw(10) << trim_word(arr[i].get_f_name()) << "|";
+		std::cout << std::setw(10) << trim_word(arr[i].get_l_name()) << "|";
+		std::cout << std::setw(10) << trim_word(arr[i].get_n_name()) << "|" << std::endl;
 	}
 	std::cout << "---------------------------------------------" << std::endl;
 	std::cout << "Which contact are you looking for: ";
@@ -54,22 +58,15 @@ void PhoneBook::search()
 			std::cout << "|        id|    f_name|    l_name|  nickname|" << std::endl;
 			std::cout << "---------------------------------------------" << std::endl;
 			std::cout << "|" << std::setw(10) << arr[i].get_id() << "|";
-			std::cout << std::setw(10) << arr[i].get_f_name() << "|";
-			std::cout << std::setw(10) << arr[i].get_l_name() << "|";
-			std::cout << std::setw(10) << arr[i].get_n_name() << "|" << std::endl;
+			std::cout << std::setw(10) << trim_word(arr[i].get_f_name()) << "|";
+			std::cout << std::setw(10) << trim_word(arr[i].get_l_name()) << "|";
+			std::cout << std::setw(10) << trim_word(arr[i].get_n_name()) << "|" << std::endl;
 			std::cout << "---------------------------------------------" << std::endl;
 			return ;
 		}
 		ss.clear();
 	}
 	std::cout << "Contact not found" << std::endl;
-}
-
-std::string trim_word(std::string word)
-{
-	if (word.length() > 10)
-		return (word.substr(0, 9) + ".");
-	return (word);
 }
 
 void PhoneBook::add(int i)
@@ -89,11 +86,11 @@ void PhoneBook::add(int i)
 		if (val[i].empty())
 			return ;
 	}
-	arr[i % 8].set_f_name(trim_word(val[0]));
-	arr[i % 8].set_l_name(trim_word(val[1]));
-	arr[i % 8].set_n_name(trim_word(val[2]));
-	arr[i % 8].set_d_sec(trim_word(val[3]));
-	arr[i % 8].set_p_number(trim_word(val[4]));
+	arr[i % 8].set_f_name(val[0]);
+	arr[i % 8].set_l_name(val[1]);
+	arr[i % 8].set_n_name(val[2]);
+	arr[i % 8].set_d_sec(val[3]);
+	arr[i % 8].set_p_number(val[4]);
 }
 
 void PhoneBook::exit()
