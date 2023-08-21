@@ -13,7 +13,7 @@ OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o:%.cpp
+%.o:%.cpp Zombie.hpp
 	$(CC) $(FLAG) -c $< -o $@
 
 $(NAME):$(OBJ)
