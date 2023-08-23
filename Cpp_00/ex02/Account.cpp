@@ -6,11 +6,12 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:57:10 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/11 14:31:17 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/22 00:12:00 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+#include <iostream>
 
 int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
