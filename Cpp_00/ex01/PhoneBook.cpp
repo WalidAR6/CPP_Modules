@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:57:58 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/23 15:58:13 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/23 22:10:47 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ bool empty_fields(Contact arr)
 void PhoneBook::search()
 {
 	std::string search;
-	int id;
+	std::string id;
 	std::stringstream ss;
 
 	std::cout << "---------------------------------------------" << std::endl;
@@ -59,7 +59,7 @@ void PhoneBook::search()
 	{
 		ss << arr[i].get_id();
 		ss >> id;
-		if (arr[i].get_id() == id && !empty_fields(arr[i]))
+		if (search == id && !empty_fields(arr[i]))
 		{
 			std::cout << "Contact found" << std::endl;
 			std::cout << "first_name: " << arr[i].get_f_name() << std::endl;
@@ -88,8 +88,6 @@ void PhoneBook::add(int i)
 	{
 		std::cout << "(" << i + 1 << " / 5) " << arrr[i];
 		std::getline(std::cin, val[i]);
-		if (std::cin.eof())
-			return ;
 		if (std::cin.fail())
 			return ;
 		if (val[i].empty())
