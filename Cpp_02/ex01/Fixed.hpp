@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 02:22:28 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/23 20:00:01 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/24 21:57:22 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FIXED_H
 
 # include <iostream>
+# include <cmath>
 
 class Fixed
 {
