@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 12:26:09 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/25 12:44:14 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/27 17:49:52 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,16 @@ Point & Point::operator=(const Point &copy)
     this->x = copy.x;
     this->y = copy.y;
     return (*this);
+}
+
+Fixed Point::get_x() const
+{
+    return (x);
+}
+
+Fixed Point::get_y() const
+{
+    return (y);
 }
 
 Point::~Point(){}
