@@ -6,11 +6,13 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 00:43:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/30 02:26:17 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/30 21:24:44 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap(){}
 
 ClapTrap::ClapTrap(std::string name): name(name), hitPoint(10), energyPoint(10), attackDamage(0)
 {
@@ -56,7 +58,6 @@ void ClapTrap::attack(const std::string & target)
 	if (hitPoint > 0 && energyPoint > 0)
 	{
 		std::cout << "ClapTrap " << name << " attack " << target << ", causing " << attackDamage << " point of damage!" << std::endl;
-		std::cout << energyPoint << std::endl;
 	}
 	else
 	{
@@ -68,6 +69,7 @@ void ClapTrap::attack(const std::string & target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
+	std::cout << name << " toke " << amount << " amount of damage" << std::endl;
 	hitPoint -= amount;
 }
 
@@ -75,7 +77,6 @@ void ClapTrap::beRepaired(unsigned int amount)
 {
 	if (hitPoint > 0 && energyPoint > 0)
 	{
-		if (hitPoint + amount > 10)
 			hitPoint += amount;
 	}
 	else

@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 00:43:03 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/30 02:13:52 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/08/30 19:43:01 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ private:
 	int energyPoint;
 	int attackDamage;
 public:
+	ClapTrap();
 	ClapTrap(std::string name);
 	ClapTrap(const ClapTrap & obj);
 	ClapTrap & operator=(const ClapTrap & obj);
