@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/30 17:16:01 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/01 17:02:15 by waraissi         ###   ########.fr       */
+/*   Created: 2023/08/31 01:29:55 by waraissi          #+#    #+#             */
+/*   Updated: 2023/09/02 16:37:25 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAV_TRAP_H
-# define SCAV_TRAP_H
+#ifndef DIAMOND_TRAP_H
+# define DIAMOND_TRAP_H
 
-# include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap
+class DiamondTrap : public FragTrap, public ScavTrap
 {
+	private:
+		std::string name;
 	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap & obj);
-		ScavTrap & operator=(const ScavTrap & obj);
-		~ScavTrap();
+		DiamondTrap();
+		DiamondTrap(std::string name);
+		DiamondTrap(const DiamondTrap & obj);
+		DiamondTrap & operator=(const DiamondTrap & obj);
+		~DiamondTrap();
 
+		std::string getName() const;
 		void attack(const std::string & target);
-		void guardGate();	
+		void whoAmI();
 };
 
 #endif

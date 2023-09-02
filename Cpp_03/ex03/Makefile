@@ -7,13 +7,14 @@ CC = c++
 SRC = main.cpp\
 		ClapTrap.cpp\
 		ScavTrap.cpp\
-		FragTrap.cpp
+		FragTrap.cpp\
+		DiamondTrap.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o:%.cpp ClapTrap.hpp ScavTrap.hpp
+%.o:%.cpp ClapTrap.hpp ScavTrap.hpp DiamondTrap.hpp
 	$(CC) $(FLAG) -c $< -o $@
 
 $(NAME):$(OBJ)
