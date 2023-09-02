@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 00:53:58 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/02 17:06:57 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/02 17:10:49 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void DiamondTrap::attack(const std::string & target)
 {
 	if (hitPoint > 0 && energyPoint > 0)
 	{
-		std::cout << "ScavTrap " << name << " attack " << target << ", causing " << attackDamage << " point of damage!" << std::endl;
+		std::cout << "ScavTrap " << name << " attack " << target << ", causing " << ScavTrap::attackDamage << " point of damage!" << std::endl;
 	}
 	else
 	{
