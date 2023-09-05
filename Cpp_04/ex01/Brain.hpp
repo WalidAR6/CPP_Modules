@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 20:11:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/03 01:17:03 by waraissi         ###   ########.fr       */
+/*   Created: 2023/09/03 00:57:31 by waraissi          #+#    #+#             */
+/*   Updated: 2023/09/03 02:12:36 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_H
-# define DOG_H
+#ifndef BRAIN_H
+# define BRAIN_H
 
-#include "Animal.hpp"
-#include "Brain.hpp"
-class Dog : public Animal
+# include "Animal.hpp"
+# include "Cat.hpp"
+# include "Dog.hpp"
+
+class Brain
 {
-	private:
-		Brain* brain;
+	protected:
+		std::string ideas[100];
 	public:
-		Dog();
-		Dog(const Dog & obj);
-		Dog & operator=(const Dog & obj);
-		~Dog();
-
-		virtual void makeSound();
+		Brain();
+		
 };
 
 #endif
