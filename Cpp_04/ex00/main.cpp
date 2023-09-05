@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 19:49:36 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/02 22:32:22 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/04 22:10:14 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int main()
 	j->makeSound();
 
 	meta->makeSound();
+	
+	delete meta;
+	delete j;
+	delete i;
 	
 	return 0;
 }
