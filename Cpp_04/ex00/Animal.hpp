@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:18:20 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/04 22:10:01 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/06 11:45:16 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Animal
 		virtual ~Animal();
 
 		std::string getType() const;
-		virtual void makeSound();
+		virtual void makeSound() const;
 };
 
 #endif

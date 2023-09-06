@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:21:59 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/02 22:34:31 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/06 11:46:22 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ std::string Animal::getType() const
 	return (type);
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
 	std::cout << "???" << std::endl;
 }

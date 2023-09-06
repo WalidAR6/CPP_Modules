@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:15:48 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 11:19:46 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/06 11:50:19 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class WrongCat : public WrongAnimal
 		WrongCat & operator=(const WrongCat & obj);
 		~WrongCat();
 
-		void makeSound();
+		void makeSound() const;
 };
 
 

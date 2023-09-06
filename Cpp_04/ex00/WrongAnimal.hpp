@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:17:31 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 11:20:43 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/06 11:50:04 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class WrongAnimal
 		~WrongAnimal();
 
 		std::string getType() const;
-		void makeSound();
+		void makeSound() const;
 };
 
 #endif

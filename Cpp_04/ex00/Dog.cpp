@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:13:08 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/02 22:35:40 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/06 11:46:47 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Dog & Dog::operator=(const Dog & obj)
 	return (*this);
 }
 
-void Dog::makeSound()
+void Dog::makeSound() const
 {
 	std::cout << "bark" << std::endl;
 }
