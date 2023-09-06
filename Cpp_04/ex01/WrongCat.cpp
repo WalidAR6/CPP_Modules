@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 20:13:08 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/02 22:35:40 by waraissi         ###   ########.fr       */
+/*   Created: 2023/09/06 11:15:14 by waraissi          #+#    #+#             */
+/*   Updated: 2023/09/06 11:22:56 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog():Animal("Dog")
+WrongCat::WrongCat():WrongAnimal("WrongCat")
 {
-	std::cout << "Dog default constuctor called" << std::endl;
-	this->brain = new Brain();
+	std::cout << "WrongCat default constuctor called" << std::endl;
 }
 
-Dog::Dog(const Dog & obj)
+WrongCat::WrongCat(const WrongCat & obj)
 {
 	*this = obj;
 }
 
-Dog & Dog::operator=(const Dog & obj)
+WrongCat & WrongCat::operator=(const WrongCat & obj)
 {
 	if (this != &obj)
 	{
@@ -32,13 +31,12 @@ Dog & Dog::operator=(const Dog & obj)
 	return (*this);
 }
 
-void Dog::makeSound()
+void WrongCat::makeSound()
 {
-	std::cout << "bark" << std::endl;
+	std::cout << "Meow" << std::endl;
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-	std::cout << "Dog Destructor called" << std::endl;
-	delete this->brain;
+	std::cout << "WrongCat Destructor called" << std::endl;
 }

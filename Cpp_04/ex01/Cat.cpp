@@ -15,6 +15,7 @@
 Cat::Cat():Animal("Cat")
 {
 	std::cout << "Cat default constuctor called" << std::endl;
+	this->brain = new Brain();
 }
 
 Cat::Cat(const Cat & obj)
@@ -39,4 +40,5 @@ void Cat::makeSound()
 Cat::~Cat()
 {
 	std::cout << "Cat Destructor called" << std::endl;
+	delete this->brain;
 }
