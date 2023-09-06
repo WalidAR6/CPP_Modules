@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:15:14 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 11:22:56 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/06 12:06:44 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ WrongCat & WrongCat::operator=(const WrongCat & obj)
 	return (*this);
 }
 
-void WrongCat::makeSound()
+void WrongCat::makeSound() const
 {
 	std::cout << "Meow" << std::endl;
 }

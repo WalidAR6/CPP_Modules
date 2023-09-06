@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:07:06 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/02 22:35:33 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/06 12:43:57 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,18 @@ Cat::Cat():Animal("Cat")
 
 Cat::Cat(const Cat & obj)
 {
-	*this = obj;
+	this->brain = new Brain(*obj.brain);
 }
 
 Cat & Cat::operator=(const Cat & obj)
 {
-	if (this != &obj)
-	{
-		this->type = obj.getType();
-	}
+	delete this->brain;
+	this->brain = new Brain(*obj.brain);
+	this->type = obj.getType();
 	return (*this);
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
 	std::cout << "Meow" << std::endl;
 }
@@ -40,5 +39,5 @@ void Cat::makeSound()
 Cat::~Cat()
 {
 	std::cout << "Cat Destructor called" << std::endl;
-	delete this->brain;
+	delete brain;
 }

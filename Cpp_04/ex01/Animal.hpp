@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:18:20 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/02 22:30:51 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/06 12:22:50 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ class Animal
 		Animal(std::string type);
 		Animal(const Animal & obj);
 		Animal & operator=(const Animal & obj);
-		~Animal();
+		virtual ~Animal();
 
 		std::string getType() const;
-		virtual void makeSound();
+		virtual void makeSound() const;
 };
 
 #endif

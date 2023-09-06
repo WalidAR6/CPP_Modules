@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:11:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/03 01:17:03 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/06 12:06:44 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "Animal.hpp"
 #include "Brain.hpp"
+
 class Dog : public Animal
 {
 	private:
@@ -25,7 +26,7 @@ class Dog : public Animal
 		Dog & operator=(const Dog & obj);
 		~Dog();
 
-		virtual void makeSound();
+		virtual void makeSound() const;
 };
 
 #endif

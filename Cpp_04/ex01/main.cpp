@@ -6,27 +6,34 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 19:49:36 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/02 22:32:22 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/06 12:54:57 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+
 #include "Cat.hpp"
 #include "Dog.hpp"
 
 int main()
 {
-	Animal* meta = new Animal();
-	Animal* j = new Dog();
-	Animal* i = new Cat();
-	
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-
-	meta->makeSound();
-	
+	std::cout << "--------------------------------" << std::endl;
+	const Animal* dog = new Dog();
+	const Animal* cat = new Cat();
+	std::cout << "--------------------------------" << std::endl;
+ 
+	const Animal *arr[10];
+	std::cout << "--------------------------------" << std::endl;
+	for (int i = 0; i < 5 ; i++)
+	{
+		arr[i] = cat;
+	}
+	for (int y = 5; y < 10 ; y++)
+	{
+		arr[y] = dog;
+	}
+	arr[5]->makeSound();
+	std::cout << "--------------------------------" << std::endl;
+	delete dog;
+	delete cat;
 	return 0;
 }
