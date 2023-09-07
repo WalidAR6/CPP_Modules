@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 19:39:23 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 22:28:51 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/07 15:20:30 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ std::string const & AMateria::getType() const
     return (type);    
 }
 
-// void AMateria::use(ICharacter& target)
-// {
-    
-// }
+std::ostream & operator<<(std::ostream & i, const ICharacter & obj)
+{
+    i <<  obj.getName();
+}
+
+void AMateria::use(ICharacter& target){}

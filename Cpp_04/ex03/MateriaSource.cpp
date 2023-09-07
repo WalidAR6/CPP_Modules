@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.hpp                                     :+:      :+:    :+:   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/06 18:37:05 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 23:42:50 by waraissi         ###   ########.fr       */
+/*   Created: 2023/09/07 17:06:42 by waraissi          #+#    #+#             */
+/*   Updated: 2023/09/07 17:14:15 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef I_CHAR_H
-# define I_CHAR_H
+#include "MateriaSource.hpp"
 
-#include "AMateria.hpp"
+MateriaSource::MateriaSource(){}
 
-class ICharacter
+MateriaSource::MateriaSource(const MateriaSource & obj)
 {
-    public:
-        virtual ~ICharacter() {}
-        virtual std::string const & getName() const = 0;
-        virtual void equip(AMateria* m) = 0;
-        virtual void unequip(int idx) = 0;
-        virtual void use(int idx, ICharacter& target) = 0; 
-};
+    
+}
 
-#endif
+MateriaSource &MateriaSource::operator=(const MateriaSource & obj)
+{
+    
+}
+
+MateriaSource::~MateriaSource(){}
+
+void MateriaSource::learnMateria(AMateria *)
+{
+    
+}
+
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+    
+}

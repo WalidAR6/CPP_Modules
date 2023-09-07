@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 22:39:48 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 22:46:30 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/07 15:20:13 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Cure : public AMateria
         ~Cure();
         
         Cure* clone() const;
-        // void use(ICharacter& target);
+        void use(ICharacter& target);
 };
 
 #endif

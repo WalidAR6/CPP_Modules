@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 22:42:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 22:50:13 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/07 15:20:26 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Cure* Cure::clone() const
     return (new Cure());
 }
 
-// void Cure::use(ICharacter & target)
-// {
-//     std::cout << "* heals " << target << "’s wounds *" << std::endl;
-// }
+void Cure::use(ICharacter & target)
+{
+    std::cout << "* heals " << target << "’s wounds *" << std::endl;
+}

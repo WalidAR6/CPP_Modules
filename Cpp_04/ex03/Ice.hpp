@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 18:30:51 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 22:36:00 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/07 15:20:17 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Ice : public AMateria
         ~Ice();
 
         Ice* clone() const;
-        // void use(ICharacter& target);
+        void use(ICharacter& target);
 };
 
 #endif
