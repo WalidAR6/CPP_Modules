@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 18:26:36 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/07 15:20:08 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/08 19:49:31 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define A_MATERIA_H
 
 #include <iostream>
-#include "ICharacter.hpp"
+#include "Character.hpp"
 
+class ICharacter;
 class AMateria
 {
     protected:
@@ -25,7 +26,7 @@ class AMateria
         AMateria(std::string const & type);
         AMateria(const AMateria & obj);
         AMateria& operator=(const AMateria & obj);
-        ~AMateria();
+        virtual ~AMateria();
 
         std::string const & getType() const; //Returns the materia type
         virtual AMateria* clone() const = 0;

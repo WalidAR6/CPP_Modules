@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 18:37:05 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 23:42:50 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/08 19:47:21 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include "AMateria.hpp"
 
+class AMateria;
 class ICharacter
 {
     public:

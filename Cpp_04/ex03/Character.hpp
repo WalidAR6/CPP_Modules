@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 23:28:59 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/07 12:58:25 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/08 13:33:14 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define CHARACTER_H
 
 #include "ICharacter.hpp"
-#include "AMateria.hpp"
+// #include "AMateria.hpp"
 
 class Character : public ICharacter
 {
@@ -22,7 +22,7 @@ class Character : public ICharacter
         std::string name;
         AMateria *slots[4];
     public:
-        Character();
+        Character(std::string name);
         Character(const Character & obj);
         Character& operator=(const Character & obj);
         ~Character();

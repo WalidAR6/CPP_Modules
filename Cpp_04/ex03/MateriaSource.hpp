@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 16:45:57 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/07 17:05:34 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/08 19:44:28 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@
 
 class MateriaSource : public IMateriaSource
 {
+    protected:
+        AMateria *clones[4];
     public:
         MateriaSource();
         MateriaSource(const MateriaSource & obj);
         MateriaSource& operator=(const MateriaSource & obj);
         ~MateriaSource();
         
-        void learnMateria(AMateria *);
+        void learnMateria(AMateria *m);
         AMateria* createMateria(std::string const & type);
 };
 

@@ -6,13 +6,13 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 23:28:54 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/07 16:43:27 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/08 13:21:16 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character()
+Character::Character(std::string name)
 {
     this->name = name;
     this->slots[0] = NULL;

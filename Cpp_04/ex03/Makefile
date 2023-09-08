@@ -7,13 +7,15 @@ CC = c++
 SRC = main.cpp\
 		AMateria.cpp\
 		Ice.cpp\
-		Cure.cpp
+		Cure.cpp\
+		Character.cpp\
+		MateriaSource.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o:%.cpp Animal.hpp Dog.hpp Cat.hpp Brain.hpp
+%.o:%.cpp AMateria.hpp Ice.hpp Cure.hpp Character.hpp MateriaSource.hpp ICharacter.hpp IMateriaSource.hpp
 	$(CC) $(FLAG) -c $< -o $@
 
 $(NAME):$(OBJ)
