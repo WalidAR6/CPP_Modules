@@ -908,38 +908,95 @@
 	
 // }
 
-class Base
+// class Base
+// {
+// 	public:
+// 	    virtual ~Base() // note: not virtual
+// 	    {
+// 	        std::cout << "Calling ~Base()\n";
+// 	    }
+// };
+
+// class Derived: public Base
+// {
+// 	private:
+// 	    int* m_array;
+
+// 	public:
+// 	    Derived(int length) : m_array(new int[length])
+// 	    {
+// 	    }
+
+// 	    virtual ~Derived() // note: not virtual (your compiler may warn you about this)
+// 	    {
+// 	        std::cout << "Calling ~Derived()\n";
+// 	        delete[] m_array;
+// 	    }
+// };
+
+// int main()
+// {
+//     Derived* derived = new Derived(5);
+//     Base* base ( derived );
+
+//     delete base;
+
+//     return 0;
+// }
+
+// class A
+// {
+// 	public:
+// 		virtual void ok1()
+// 		{
+// 			std::cout << "A::ok1()" << std::endl;
+// 		}
+// 		virtual void ok2()
+// 		{
+// 			std::cout << "A::ok2()" << std::endl;
+// 		}
+// };
+
+// class B : public A
+// {
+// 	public:
+// 		void ok1()
+// 		{
+// 			std::cout << "B::ok1()" << std::endl;
+// 		}
+// };
+
+// class C : public B
+// {
+// 	public:
+// 		void ok2()
+// 		{
+// 			std::cout << "C::ok2()" << std::endl;
+// 		}
+// };
+// int main()
+// {
+// 	C a;
+
+// 	a.ok1();
+// }
+
+class A
 {
 	public:
-	    virtual ~Base() // note: not virtual
-	    {
-	        std::cout << "Calling ~Base()\n";
-	    }
+		virtual int getValue() = 0;
 };
 
-class Derived: public Base
+class B : public A
 {
-	private:
-	    int* m_array;
-
 	public:
-	    Derived(int length) : m_array(new int[length])
-	    {
-	    }
-
-	    virtual ~Derived() // note: not virtual (your compiler may warn you about this)
-	    {
-	        std::cout << "Calling ~Derived()\n";
-	        delete[] m_array;
-	    }
+		int getValue(){return 7;}
 };
 
 int main()
 {
-    Derived* derived = new Derived(5);
-    Base* base ( derived );
+	A b;
 
-    delete base;
+	std::cout << b.getValue() << std::endl;
 
-    return 0;
 }
