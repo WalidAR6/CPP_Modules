@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:57:58 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/09 17:21:42 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:50:43 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void ctrl_d()
 	std::fclose(stdin);
 	std::cin.clear();
 	std::fopen("/dev/tty", "r");
-	std::cout << "" << std::endl;
+	std::cout << std::endl;
 }
 
 void PhoneBook::search()
@@ -62,12 +62,11 @@ void PhoneBook::search()
 	
 	std::cout << "Which contact are you looking for: ";
 	std::getline(std::cin, search);
-	if (std::cin.eof() || search.empty())
+	if (std::cin.fail())
 	{
-		ctrl_d();
+		eof_handler();
 		return ;
 	}
-
 	for (int i = 0; i < 8; i++)
 	{
 		ss << arr[i].get_id();
@@ -75,11 +74,11 @@ void PhoneBook::search()
 		if (search == id && !empty_fields(arr[i]))
 		{
 			std::cout << "CONTACT FOUND" << std::endl;
-			std::cout << "first_name -> " << arr[i].get_f_name() << std::endl;
-			std::cout << "last_name -> " << arr[i].get_l_name() << std::endl;
-			std::cout << "nickname -> " << arr[i].get_n_name() << std::endl;
-			std::cout << "darkest_sec -> " << arr[i].get_d_sec() << std::endl;
-			std::cout << "phone_number -> " << arr[i].get_p_number() << std::endl;
+			std::cout << "first_name\t-> " << arr[i].get_f_name() << std::endl;
+			std::cout << "last_name\t-> " << arr[i].get_l_name() << std::endl;
+			std::cout << "nickname\t-> " << arr[i].get_n_name() << std::endl;
+			std::cout << "darkest_sec\t-> " << arr[i].get_d_sec() << std::endl;
+			std::cout << "phone_number\t-> " << arr[i].get_p_number() << std::endl;
 			return ;
 		}
 		ss.clear();
@@ -102,9 +101,9 @@ void PhoneBook::add(int *i)
 	{
 		std::cout << "(" << i + 1 << " / 5) " << arrr[i];
 		std::getline(std::cin, val[i]);
-		if (std::cin.eof())
+		if (std::cin.fail())
 		{
-			ctrl_d();
+			eof_handler();
 			return ;
 		}
 		if (val[i].empty())
@@ -133,5 +132,16 @@ void PhoneBook::set_contact_id()
 	for (int i = 0; i < 8; i++)
 	{
 		arr[i].set_id(i);
+	}
+}
+
+void eof_handler()
+{
+	if (std::cin.eof())
+	{
+		std::fclose(stdin);
+		std::cin.clear();
+		std::fopen("/dev/tty", "r");
+		std::cout << std::endl;
 	}
 }

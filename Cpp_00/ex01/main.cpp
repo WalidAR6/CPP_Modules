@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 13:10:34 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/09 17:16:04 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/11 12:49:57 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,9 @@ int main()
 	{
 		std::cout << "> ";
 		std::getline(std::cin, line);
-		if (std::cin.eof())
+		if (std::cin.fail())
 		{
-			std::fclose(stdin);
-			std::cin.clear();
-			std::fopen("/dev/tty", "r");
-			std::cout << "" << std::endl;
+			eof_handler();
 		}
 		else if (line == "EXIT" || line == "E")
 		{
