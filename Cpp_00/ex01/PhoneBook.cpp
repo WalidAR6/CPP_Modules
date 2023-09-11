@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:57:58 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/11 12:50:43 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/11 18:17:55 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,6 @@ bool empty_fields(Contact arr)
 			|| arr.get_d_sec().empty() || arr.get_d_sec().empty())
 		return true;
 	return false;
-}
-
-void ctrl_d()
-{
-	std::fclose(stdin);
-	std::cin.clear();
-	std::fopen("/dev/tty", "r");
-	std::cout << std::endl;
 }
 
 void PhoneBook::search()
@@ -112,7 +104,7 @@ void PhoneBook::add(int *i)
 			return ;
 		}
 	}
-	
+
 	arr[*i % 8].set_f_name(val[0]);
 	arr[*i % 8].set_l_name(val[1]);
 	arr[*i % 8].set_n_name(val[2]);

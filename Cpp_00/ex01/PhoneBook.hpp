@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 16:29:10 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/11 12:46:28 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/11 18:06:40 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ class PhoneBook
 };
 
 void eof_handler();
-void cin_fail();
+
 #endif
