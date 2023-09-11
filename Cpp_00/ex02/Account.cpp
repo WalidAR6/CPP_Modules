@@ -6,17 +6,17 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 20:57:10 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/22 00:12:00 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/11 18:14:57 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
 
-int Account::_nbAccounts = 0;
-int Account::_totalAmount = 0;
-int Account::_totalNbDeposits = 0;
-int Account::_totalNbWithdrawals = 0;
+int Account::_nbAccounts;
+int Account::_totalAmount;
+int Account::_totalNbDeposits;
+int Account::_totalNbWithdrawals;
 
 Account::Account(int initial_deposit)
 {
@@ -114,7 +114,7 @@ void Account::_displayTimestamp()
 	std::tm *ok = std::localtime(&now);
 
   	std::cout << "[" << ok->tm_year + 1900;
- 	std::cout << append_z(ok->tm_mon) << ok->tm_mon;
+ 	std::cout << append_z(ok->tm_mon + 1) << ok->tm_mon + 1;
   	std::cout << append_z(ok->tm_mday) << ok->tm_mday;
   	std::cout << "_" << append_z(ok->tm_hour) << ok->tm_hour;
   	std::cout << append_z(ok->tm_min) << ok->tm_min;
