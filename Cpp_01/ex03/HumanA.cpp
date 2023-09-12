@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:10:25 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/17 21:24:17 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/12 21:05:41 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ std::string HumanA::get_name()
 
 void HumanA::attack()
 {
-	std::cout << get_name() << " attacks with their " << weapon.get_type_const() << std::endl;
+	std::cout << get_name() << " attacks with their " << weapon.getType() << std::endl;
 }

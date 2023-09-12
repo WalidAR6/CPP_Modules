@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:10:20 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/17 14:53:19 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/12 21:37:24 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ std::string HumanB::get_name()
 	return (name);
 }
 
-void HumanB::set_weapon(Weapon& wea)
+void HumanB::setWeapon(Weapon& wea)
 {
 	this->weapon = &wea;
 }
 
 void HumanB::attack()
 {
-	if (weapon->get_typer())
-		std::cout << get_name() << " attacks with their " << *(weapon->get_typer()) << std::endl;
+	if (weapon->get_type())
+		std::cout << get_name() << " attacks with their " << *(weapon->get_type()) << std::endl;
 }
