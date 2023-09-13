@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 13:46:51 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/18 17:19:13 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:52:44 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,45 @@
 
 void	replace_elem(std::string line, std::string s1, std::string s2, std::ofstream &out)
 {
-	size_t i = 0;
 	size_t pos;
 
-	while (line[i])
+	while (true)
 	{
-		pos = line.find(s1, i);
-		if (pos == i && !s1.empty())
+		if (line.empty())
+			return ;
+		pos = line.find(s1);
+		if (pos == line.size() || pos > line.size() || pos < 0)
 		{
-			out << s2;
-			i += s1.size();
+			out << line;
+			return ;
 		}
-		else
-		{
-			out << line[i];
-			i++;
-		}
+		out << line.substr(0, pos);
+		out << s2;
+		line = line.substr(pos + s1.size(), line.size());
 	}
 }
 
+int is_empty(std::string inf)
+{
+	std::string line;
+
+	std::ifstream filename(inf);
+	std::getline(filename, line);
+	if (line.empty())
+	{
+		filename.close();
+		return (1);
+	}
+	filename.close();
+	return (0);
+}
 
 int main(int ac, char **av)
 {
 	if (ac != 4)
 		return (1);
 	std::string line;
+	std::string all;
 	std::string out = av[1];
 	std::string s1 = av[2];
 	std::string s2 = av[3];
@@ -51,18 +65,20 @@ int main(int ac, char **av)
 		std::cout << "file does not exist" << std::endl;
 		return (1);
 	}
+	if (is_empty(out))
+	{
+		std::cout << "file empty" << std::endl;
+		filename.close();
+		return (1);
+	}
 	std::ofstream outfile(out.append(".replace"));
 	if (!outfile.is_open())
 	{
 		filename.close();
 		return (0);
 	}
-	while (std::getline(filename, line))
-	{
-		replace_elem(line, av[2], av[3], outfile);
-		if (!filename.eof())
-			outfile << "" << std::endl;
-	}
+	std::getline(filename, line, '\0');
+	replace_elem(line, av[2], av[3], outfile);
 	filename.close();
 	outfile.close();
 	return (0);
