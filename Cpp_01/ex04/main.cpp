@@ -6,13 +6,12 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 13:46:51 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/14 12:05:05 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:17:39 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-#include <string>
 
 void	replace_elem(std::string line, std::string s1, std::string s2, std::ofstream &out)
 {

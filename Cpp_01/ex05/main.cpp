@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 11:04:15 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/17 21:38:39 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:17:26 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int main()
 {
-	// void (Harl::*func)(std::string) = &Harl::complain;
 	Harl a;
 	a.complain("info");
 }
