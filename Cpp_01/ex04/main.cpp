@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 13:46:51 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/13 16:52:44 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/14 12:05:05 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,31 +54,33 @@ int main(int ac, char **av)
 	if (ac != 4)
 		return (1);
 	std::string line;
-	std::string all;
 	std::string out = av[1];
 	std::string s1 = av[2];
 	std::string s2 = av[3];
 	
+	if (s1.empty())
+		return (1);
 	std::ifstream filename(out);
 	if (!filename.is_open())
 	{
-		std::cout << "file does not exist" << std::endl;
+		std::cout << "Can't open file" << std::endl;
 		return (1);
 	}
 	if (is_empty(out))
 	{
-		std::cout << "file empty" << std::endl;
+		std::cout << "File is empty" << std::endl;
 		filename.close();
 		return (1);
 	}
 	std::ofstream outfile(out.append(".replace"));
 	if (!outfile.is_open())
 	{
+		std::cout << "Can't open file" << std::endl;
 		filename.close();
 		return (0);
 	}
 	std::getline(filename, line, '\0');
-	replace_elem(line, av[2], av[3], outfile);
+	replace_elem(line, s1, s2, outfile);
 	filename.close();
 	outfile.close();
 	return (0);

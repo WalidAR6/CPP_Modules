@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:10:37 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/13 11:39:53 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:09:19 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Weapon::Weapon(std::string const &type)
 
 Weapon::~Weapon(){}
 
-std::string	*Weapon::get_type()
+const std::string *Weapon::get_type() const
 {
 	return (&type);
 }

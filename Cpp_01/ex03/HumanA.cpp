@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:10:25 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/12 21:05:41 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:26:35 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void HumanA::set_name(std::string name)
 	this->name = name;
 }
 
-std::string HumanA::get_name()
+std::string HumanA::get_name() const
 {
 	return (name);
 }

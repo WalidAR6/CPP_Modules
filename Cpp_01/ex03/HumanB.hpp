@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:10:32 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/12 21:31:54 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:26:50 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class HumanB
 
 		void			setWeapon(Weapon &wea);
 		void			set_name(std::string name);
-		std::string		get_name();
+		std::string		get_name() const;
 		void	attack();
 };
 

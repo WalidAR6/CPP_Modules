@@ -25,9 +25,6 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-run: all
-	@./$(NAME)
-
-re: clean fclean
+re: fclean all
 
 .PHONY: all re fclean clean

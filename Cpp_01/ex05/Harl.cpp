@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 11:02:27 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/17 21:37:25 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/13 17:37:19 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ void Harl::complain(std::string level)
 			break;
 		}
 		i++;
-	}	
+	}
 }

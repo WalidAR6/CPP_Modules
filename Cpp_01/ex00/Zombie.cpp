@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 19:18:48 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/14 12:17:51 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:23:10 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void Zombie::set_name(std::string name)
 	this->name = name;
 }
 
-std::string Zombie::get_name()
+std::string Zombie::get_name() const
 {
 	return(name);
 }

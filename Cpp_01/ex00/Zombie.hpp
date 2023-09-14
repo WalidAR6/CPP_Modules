@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/13 18:51:33 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/14 11:46:24 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:23:00 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ class Zombie
 	public:
 		Zombie();
 		~Zombie();
-		
+
 		void		set_name(std::string name);
-		std::string	get_name();
+		std::string	get_name() const;
 		void		announce(void);
 };
 
