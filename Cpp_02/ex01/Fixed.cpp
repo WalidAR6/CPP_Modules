@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 02:23:08 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/24 23:39:52 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/16 00:53:00 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ const int Fixed::n = 8;
 Fixed::Fixed()
 {
     std::cout << "Default constractor called" << std::endl;
+    raw = 0;
 }
 
 Fixed::Fixed(const int raw)
@@ -28,7 +29,7 @@ Fixed::Fixed(const int raw)
 Fixed::Fixed(const float raw)
 {
     std::cout << "Float constractor called" << std::endl;
-    this->raw = round(raw * (1 << n));
+    this->raw = roundf(raw * (1 << n));
 }
 
 Fixed::Fixed(const Fixed & copy)
@@ -61,7 +62,7 @@ float Fixed::toFloat() const
 
 int Fixed::toInt() const
 {
-    return ((int)raw >> 8);
+    return ((int)raw >> n);
 }
 
 std::ostream & operator<<(std::ostream & i, const Fixed & obj)

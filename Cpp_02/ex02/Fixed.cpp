@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 23:47:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/25 02:26:16 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/16 02:49:16 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ Fixed::Fixed():raw(0){}
 
 Fixed::Fixed(const int raw)
 {
-    this->raw = raw * (1 << n);
+    this->raw = raw << n;
 }
 
 Fixed::Fixed(const float raw)
 {
-    this->raw = round(raw * (1 << n));
+    this->raw = roundf(raw * (1 << n));
 }
 
 Fixed::Fixed(const Fixed & copy)
@@ -95,24 +95,34 @@ bool Fixed::operator<=(const Fixed & obj)const
 
 Fixed Fixed::operator+(const Fixed & obj)const
 {
-	return (raw + obj.getRawBits());	
+	Fixed cpy;
+
+	cpy.setRawBits(this->raw + obj.getRawBits());
+	return (cpy);	
 }
 
 Fixed Fixed::operator-(const Fixed & obj)const
 {
-	return (raw - obj.getRawBits());	
+	Fixed cpy;
+	
+	cpy.setRawBits(this->raw - obj.getRawBits());
+	return (cpy);
 }
 
 Fixed Fixed::operator*(const Fixed & obj)const
 {
-	return (toFloat() * obj.toFloat());
+	Fixed cpy;
+	
+	cpy.raw = (this->raw * obj.raw) >> n;
+	return (cpy);
 }
 
 Fixed Fixed::operator/(const Fixed & obj)const
 {
-	if (obj.toFloat() != 0)
-		return (toFloat() / obj.toFloat());
-	return (0);
+	Fixed cpy;
+
+	cpy.raw = roundf(((float)this->raw / obj.raw) * (1 << n));
+	return (cpy);
 }
 
 Fixed & Fixed::operator++()
