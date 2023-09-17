@@ -13,7 +13,7 @@ OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o:%.cpp ClapTrap.hpp ScavTrap.hpp
+%.o:%.cpp ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 	$(CC) $(FLAG) -c $< -o $@
 
 $(NAME):$(OBJ)
@@ -25,9 +25,6 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-run: all
-	@./$(NAME)
-
-re: clean fclean all
+re: fclean all
 
 .PHONY: all re fclean clean

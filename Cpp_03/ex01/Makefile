@@ -1,4 +1,4 @@
-NAME = ScavTrapTrap
+NAME = ScavTrap
 
 FLAG = -Wall -Wextra -Werror -std=c++98
 
@@ -24,9 +24,6 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-run: all
-	@./$(NAME)
-
-re: clean fclean all
+re: fclean all
 
 .PHONY: all re fclean clean
