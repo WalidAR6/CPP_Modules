@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 23:35:51 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/17 05:08:45 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/17 23:02:13 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ FragTrap::FragTrap(std::string name): ClapTrap(name, 100, 100, 30)
 
 FragTrap::FragTrap(const FragTrap & obj)
 {
+	std::cout << "FragTrap copy constructor called" << std::endl;
 	*this = obj;
 }
 
 FragTrap & FragTrap::operator=(const FragTrap & obj)
 {
+	std::cout << "FragTrap copy assignment operator called" << std::endl;
 	name = obj.getName();
 	hitPoint = obj.getHitPoint();
 	energyPoint = obj.getEnergyPoint();

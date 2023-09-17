@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 17:16:08 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/17 05:08:37 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/17 23:02:50 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ ScavTrap::ScavTrap(std::string name):ClapTrap(name, 100, 50, 20)
 
 ScavTrap::ScavTrap(const ScavTrap & obj)
 {
+	std::cout << "ScavTrap copy constructor called" << std::endl;
 	*this = obj;
 }
 
 ScavTrap & ScavTrap::operator=(const ScavTrap & obj)
 {
+	std::cout << "ScavTrap copy assignment operator called" << std::endl;
 	name = obj.getName();
 	hitPoint = obj.getHitPoint();
 	energyPoint = obj.getEnergyPoint();

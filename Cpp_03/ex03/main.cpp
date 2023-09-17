@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 00:43:05 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/02 17:12:36 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/17 23:27:43 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 int main()
 {
-	DiamondTrap a("walid");
-	DiamondTrap b("okkk");
+	DiamondTrap a("obm");
+	DiamondTrap b("enemy");
 
-	a.attack("okkk");
-	b.takeDamage(20);
+	a.attack("enemy");
+	b.takeDamage(a.getAttackDamage());
 
-	std::cout << a.getHitPoint() << std::endl;
-	std::cout << a.getEnergyPoint() << std::endl;
-	
-	std::cout << b.getHitPoint() << std::endl;
+	std::cout << "obm's energy points " << a.getEnergyPoint() << std::endl;
+	std::cout << "enemy's health " << b.getHitPoint() << std::endl;
+
+	b.beRepaired(2);
+	a.highfives();
+
+	std::cout << "enemy's energy points " << b.getEnergyPoint() << std::endl;
+	std::cout << "enemy's health " << b.getHitPoint() << std::endl;
 }
