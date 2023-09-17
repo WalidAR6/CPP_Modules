@@ -6,14 +6,11 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 00:53:58 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/17 23:25:02 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/17 23:45:38 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
-#include <ostream>
 
 DiamondTrap::DiamondTrap()
 {
