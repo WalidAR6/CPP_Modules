@@ -11,7 +11,7 @@ OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o:%.cpp
+%.o:%.cpp ClapTrap.hpp
 	$(CC) $(FLAG) -c $< -o $@
 
 $(NAME):$(OBJ)
@@ -23,9 +23,6 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-run: all
-	@./$(NAME)
-
-re: clean fclean all
+re: fclean all
 
 .PHONY: all re fclean clean
