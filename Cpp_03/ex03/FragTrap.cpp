@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 23:35:51 by waraissi          #+#    #+#             */
-/*   Updated: 2023/08/31 00:26:19 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/17 05:05:54 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 FragTrap::FragTrap()
 {
-	std::cout << "FragTrap default constructor called" << std::endl;
+	std::cout << "FragTrap" << name << " is constructed" << std::endl;
+	this->hitPoint = 100;
+	this->energyPoint = 100;
+	this->attackDamage = 30;
 }
 
 FragTrap::FragTrap(std::string name): ClapTrap(name, 100, 100, 30)
 {
-	std::cout << "FragTrap " << name << " constructer called" << std::endl;
+	std::cout << "FragTrap " << name << " is constructed" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap & obj)
@@ -29,19 +32,16 @@ FragTrap::FragTrap(const FragTrap & obj)
 
 FragTrap & FragTrap::operator=(const FragTrap & obj)
 {
-	if (this != &obj)
-	{
-		name = obj.getName();
-		hitPoint = obj.getHitPoint();
-		energyPoint = obj.getEnergyPoint();
-		attackDamage = obj.getAttackDamage();
-	}
+	name = obj.getName();
+	hitPoint = obj.getHitPoint();
+	energyPoint = obj.getEnergyPoint();
+	attackDamage = obj.getAttackDamage();
 	return (*this);
 }
 
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap " << getName() << " destracted" << std::endl;
+	std::cout << "FragTrap " << name << " is destructed" << std::endl;
 }
 
 void FragTrap::attack(const std::string & target)
@@ -49,16 +49,16 @@ void FragTrap::attack(const std::string & target)
 	if (hitPoint > 0 && energyPoint > 0)
 	{
 		std::cout << "FragTrap " << name << " attack " << target << ", causing " << attackDamage << " point of damage!" << std::endl;
-	}
-	else
-	{
-		std::cout << "you have no point to attack!" << std::endl;
+		energyPoint -= 1;
 		return ;
 	}
-	energyPoint -= 1;
+	if (hitPoint == 0)
+		std::cout << "FragTrap " << name << " is dead, he can't attack!" << std::endl;
+	else if (energyPoint == 0)
+		std::cout << "FragTrap " << name << " has no energy point to be attack!" << std::endl;
 }
 
 void FragTrap::highfives()
 {
-	std::cout << "You seek a drop of good news, and your Lord desires to bestow upon you rain." << std::endl;
+	std::cout << "FragTrap " << name << " has no enemies" << std::endl;
 }

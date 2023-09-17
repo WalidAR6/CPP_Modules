@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 17:16:08 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/17 04:13:54 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/17 05:08:56 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ScavTrap::~ScavTrap()
 	std::cout << "ScavTrap " << name << " is destructed" << std::endl;
 }
 
-void ClapTrap::attack(const std::string & target)
+void ScavTrap::attack(const std::string & target)
 {
 	if (hitPoint > 0 && energyPoint > 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 23:35:51 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/17 04:22:55 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/17 05:08:45 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ FragTrap::~FragTrap()
 	std::cout << "FragTrap " << name << " is destructed" << std::endl;
 }
 
-void ClapTrap::attack(const std::string & target)
+void FragTrap::attack(const std::string & target)
 {
 	if (hitPoint > 0 && energyPoint > 0)
 	{
