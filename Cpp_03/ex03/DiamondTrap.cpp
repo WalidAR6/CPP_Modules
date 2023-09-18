@@ -6,26 +6,27 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 00:53:58 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/17 23:45:38 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/18 01:45:00 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+#include "ScavTrap.hpp"
 
 DiamondTrap::DiamondTrap()
 {
 	std::cout << "DiamondTrap" << name << " is constructed" << std::endl;
-	this->hitPoint = FragTrap::hitPoint;
-	this->energyPoint = ScavTrap::energyPoint;
-	this->attackDamage = FragTrap::attackDamage;
+	this->hitPoint = 100;
+	this->energyPoint = 50;
+	this->attackDamage = 30;
 }
 
 DiamondTrap::DiamondTrap(std::string name):ClapTrap(name + "_clap_name"), name(name)
 {
 	std::cout << "DiamondTrap " << name << " is constructed" << std::endl;
-	this->hitPoint = FragTrap::hitPoint;
-	this->energyPoint = ScavTrap::energyPoint;
-	this->attackDamage = FragTrap::attackDamage;
+	this->hitPoint = 100;
+	this->energyPoint = 50;
+	this->attackDamage = 30;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap & obj)
