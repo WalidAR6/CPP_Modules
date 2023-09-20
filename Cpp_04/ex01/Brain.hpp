@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 00:57:31 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 12:16:38 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 02:45:07 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,8 @@ class Brain
 	public:
 		Brain();
 		Brain(const Brain & obj);
-		~Brain();
-
 		Brain & operator=(const Brain & obj);
+		~Brain();
 };
 
 #endif

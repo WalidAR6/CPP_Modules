@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:13:08 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 14:44:12 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 02:46:25 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ Dog::Dog():Animal("Dog")
 
 Dog::Dog(const Dog & obj)
 {
-	this->brain = new Brain();
-	*this->brain = *obj.brain;
+	this->brain = new Brain(*obj.brain);
 }
 
 Dog & Dog::operator=(const Dog & obj)
 {
-	delete this->brain;
+	if (this->brain)
+		delete this->brain;
 	this->brain = new Brain(*obj.brain);
 	this->type = obj.getType();
 	return (*this);

@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 19:49:36 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 12:54:57 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 02:49:10 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,14 @@
 int main()
 {
 	std::cout << "--------------------------------" << std::endl;
+	
 	const Animal* dog = new Dog();
 	const Animal* cat = new Cat();
+	
 	std::cout << "--------------------------------" << std::endl;
  
 	const Animal *arr[10];
-	std::cout << "--------------------------------" << std::endl;
+
 	for (int i = 0; i < 5 ; i++)
 	{
 		arr[i] = cat;
@@ -31,9 +33,12 @@ int main()
 	{
 		arr[y] = dog;
 	}
+	
 	arr[5]->makeSound();
+
 	std::cout << "--------------------------------" << std::endl;
 	delete dog;
 	delete cat;
+
 	return 0;
 }

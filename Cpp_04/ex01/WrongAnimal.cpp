@@ -29,10 +29,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal & obj)
 
 WrongAnimal & WrongAnimal::operator=(const WrongAnimal & obj)
 {
-	if (this != &obj)
-	{
-		this->type = obj.type;
-	}
+	this->type = obj.type;
 	return (*this);
 }
 

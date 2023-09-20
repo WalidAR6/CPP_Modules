@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:07:06 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 14:45:30 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 02:45:54 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ Cat::Cat():Animal("Cat")
 
 Cat::Cat(const Cat & obj)
 {
-	this->brain = new Brain();
-	*this->brain = *obj.brain;
+	this->brain = new Brain(*obj.brain);
 }
 
 Cat & Cat::operator=(const Cat & obj)
 {
-	delete this->brain;
+	if (this->brain)
+		delete this->brain;
 	this->brain = new Brain(*obj.brain);
 	this->type = obj.getType();
 	return (*this);

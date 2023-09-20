@@ -16,7 +16,7 @@ OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o:%.cpp Animal.hpp Dog.hpp Cat.hpp Brain.hpp
+%.o:%.cpp Animal.hpp Dog.hpp Cat.hpp Brain.hpp WrongAnimal.hpp WrongCat.hpp
 	$(CC) $(FLAG) -c $< -o $@
 
 $(NAME):$(OBJ)
@@ -28,9 +28,6 @@ clean:
 fclean: clean
 	rm -rf $(NAME)
 
-run: all
-	@./$(NAME)
-
-re: clean fclean all
+re: fclean all
 
 .PHONY: all re fclean clean
