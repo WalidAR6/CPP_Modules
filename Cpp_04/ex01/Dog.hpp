@@ -6,15 +6,15 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:11:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 12:06:44 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:33:13 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_H
 # define DOG_H
 
-#include "Animal.hpp"
-#include "Brain.hpp"
+# include "Animal.hpp"
+# include "Brain.hpp"
 
 class Dog : public Animal
 {

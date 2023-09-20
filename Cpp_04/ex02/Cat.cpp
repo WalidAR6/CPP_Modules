@@ -6,13 +6,13 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:07:06 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 15:54:14 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:00:20 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat():AnimalA("Cat")
+Cat::Cat():Animal("Cat")
 {
 	std::cout << "Cat default constuctor called" << std::endl;
 	this->brain = new Brain();
@@ -20,12 +20,15 @@ Cat::Cat():AnimalA("Cat")
 
 Cat::Cat(const Cat & obj)
 {
-	this->brain = new Brain();
-	*this->brain = *obj.brain;
+	this->brain = NULL;
+	*this = obj;
 }
 
 Cat & Cat::operator=(const Cat & obj)
 {
+	if (this == &obj)
+		return (*this);
+
 	delete this->brain;
 	this->brain = new Brain(*obj.brain);
 	this->type = obj.getType();

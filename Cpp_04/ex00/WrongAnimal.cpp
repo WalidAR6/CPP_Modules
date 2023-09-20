@@ -31,6 +31,7 @@ WrongAnimal & WrongAnimal::operator=(const WrongAnimal & obj)
 {
 	if (this == &obj)
 		return (*this);
+
 	this->type = obj.type;
 	return (*this);
 }

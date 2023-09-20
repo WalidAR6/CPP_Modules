@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:14:29 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/20 00:37:59 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:59:35 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ Brain::~Brain()
 
 Brain &Brain::operator=(const Brain & obj)
 {
+	if (this == &obj)
+		return (*this);
+
 	for (int i = 0; i < 100; i++)
 	{
 		this->ideas[i] = obj.ideas[i];

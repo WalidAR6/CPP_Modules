@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:18:20 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 15:53:46 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:11:11 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 # include <iostream>
 
-class AnimalA
+class Animal
 {
 	protected:
 		std::string type;
 	public:
-		AnimalA();
-		AnimalA(std::string type);
-		AnimalA(const AnimalA & obj);
-		AnimalA & operator=(const AnimalA & obj);
-		virtual ~AnimalA();
+		Animal();
+		Animal(std::string type);
+		Animal(const Animal & obj);
+		Animal & operator=(const Animal & obj);
+		virtual ~Animal();
 
 		std::string getType() const;
 		virtual void makeSound() const = 0;

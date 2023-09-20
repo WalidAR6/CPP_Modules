@@ -6,42 +6,42 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:21:59 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 15:53:58 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:11:18 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-AnimalA::AnimalA()
+Animal::Animal()
 {
-	std::cout << "AnimalA default constructor called" << std::endl;
+	std::cout << "Animal default constructor called" << std::endl;
 }
 
-AnimalA::AnimalA(std::string type):type(type)
+Animal::Animal(std::string type):type(type)
 {
-	std::cout << "AnimalA " << type << " parameterized constuctor called" << std::endl;
+	std::cout << "Animal " << type << " parameterized constuctor called" << std::endl;
 }
 
-AnimalA::AnimalA(const AnimalA & obj)
+Animal::Animal(const Animal & obj)
 {
 	*this = obj;
 }
 
-AnimalA & AnimalA::operator=(const AnimalA & obj)
+Animal & Animal::operator=(const Animal & obj)
 {
-	if (this != &obj)
-	{
-		this->type = obj.type;
-	}
+	if (this == &obj)
+		return (*this);
+
+	this->type = obj.type;
 	return (*this);
 }
 
-std::string AnimalA::getType() const
+std::string Animal::getType() const
 {
 	return (type);
 }
 
-AnimalA::~AnimalA()
+Animal::~Animal()
 {
-	std::cout << "AnimalA destructor called" << std::endl;
+	std::cout << "Animal destructor called" << std::endl;
 }

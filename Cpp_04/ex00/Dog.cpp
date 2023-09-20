@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:13:08 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/20 19:16:46 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:06:13 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Dog & Dog::operator=(const Dog & obj)
 {
 	if (this == &obj)
 		return (*this);
+
 	this->type = obj.getType();
 	return (*this);
 }
