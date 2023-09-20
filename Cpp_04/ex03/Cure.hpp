@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 22:39:48 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/07 15:20:13 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:22:34 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Cure : public AMateria
         Cure(const Cure & obj);
         Cure & operator=(const Cure & obj);
         ~Cure();
-        
+
         Cure* clone() const;
         void use(ICharacter& target);
 };

@@ -6,43 +6,39 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 23:28:54 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/08 13:21:16 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 21:32:52 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include <cstddef>
 
 Character::Character(std::string name)
 {
     this->name = name;
-    this->slots[0] = NULL;
-    this->slots[1] = NULL;
-    this->slots[2] = NULL;
-    this->slots[3] = NULL;
+    for (int i = 0; i < 4; i++)
+        this->slots[i] = NULL;
 }
 
 Character::Character(const Character & obj)
 {
-    this->name = obj.name;
-    for (int i = 0; i < 4; i++)
-    {
-        this->slots[i] = obj.slots[i]->clone();
-    }
+    *this = obj;
 }
 
 Character & Character::operator=(const Character & obj)
 {
     if (this == &obj)
         return (*this);
+
     this->name = obj.name;
     for (int i = 0; i < 4; i++)
     {
         if (this->slots[i] != NULL)
         {
             delete slots[i];
-            this->slots[i] = obj.slots[i]->clone();
+            slots[i] = NULL;
         }
-        else
+        if (obj.slots[i])
             this->slots[i] = obj.slots[i]->clone();
     }
     return (*this);
@@ -89,7 +85,7 @@ void Character::use(int idx, ICharacter &target)
 {
     for (int i = 0; i < 4; i++)
     {
-        if (i == idx)
+        if (i == idx && slots[i])
         {
             slots[i]->use(target);
             break;

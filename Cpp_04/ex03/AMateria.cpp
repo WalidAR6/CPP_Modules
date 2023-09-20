@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 19:39:23 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/08 19:48:54 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:20:09 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ AMateria::AMateria(const AMateria & obj)
 
 AMateria &AMateria::operator=(const AMateria & obj)
 {
+    if (this == &obj)
+        return (*this);
+
     this->type = obj.getType();
     return (*this);
 }

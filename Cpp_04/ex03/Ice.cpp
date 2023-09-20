@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 19:46:18 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/07 15:17:22 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:23:40 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Ice &Ice::operator=(const Ice & obj)
 {
     if (this == &obj)
         return (*this);
+
     return (*this);
 }
 

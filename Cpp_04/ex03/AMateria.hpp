@@ -6,15 +6,15 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 18:26:36 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/08 19:49:31 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 20:22:06 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef A_MATERIA_H
 # define A_MATERIA_H
 
-#include <iostream>
-#include "Character.hpp"
+# include <iostream>
+# include "ICharacter.hpp"
 
 class ICharacter;
 class AMateria
