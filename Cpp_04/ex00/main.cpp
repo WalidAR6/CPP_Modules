@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 19:49:36 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 15:57:05 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 02:44:05 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,22 @@ int main()
 	j->makeSound();
 
 	meta->makeSound();
-
+	
+	delete meta;
+	delete j;
+	delete i;
+	
+	std::cout << "============================" << std::endl;
+	
 	const WrongAnimal* ok = new WrongAnimal();
 	const WrongAnimal* ow = new WrongCat();
 	
 	std::cout << ow->getType() << " " << std::endl;
 	ow->makeSound();
 	ok->makeSound();
-
 	
-	delete meta;
-	delete j;
-	delete i;
+	delete ok;
+	delete ow;
 	
 	return 0;
 }

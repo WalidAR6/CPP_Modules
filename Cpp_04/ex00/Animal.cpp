@@ -6,20 +6,20 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:21:59 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 12:06:56 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/19 11:41:41 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal()
+Animal::Animal():type("Animal")
 {
 	std::cout << "Animal default constructor called" << std::endl;
 }
 
 Animal::Animal(std::string type):type(type)
 {
-	std::cout << "Animal " << type << " parameterized constuctor called" << std::endl;
+	std::cout << "Animal " << type << " parameterized constructor called" << std::endl;
 }
 
 Animal::Animal(const Animal & obj)
@@ -29,10 +29,7 @@ Animal::Animal(const Animal & obj)
 
 Animal & Animal::operator=(const Animal & obj)
 {
-	if (this != &obj)
-	{
-		this->type = obj.type;
-	}
+	this->type = obj.type;
 	return (*this);
 }
 

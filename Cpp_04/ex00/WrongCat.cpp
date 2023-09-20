@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:15:14 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/06 12:07:30 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/19 22:07:17 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,7 @@ WrongCat::WrongCat(const WrongCat & obj)
 
 WrongCat & WrongCat::operator=(const WrongCat & obj)
 {
-	if (this != &obj)
-	{
-		this->type = obj.getType();
-	}
+	this->type = obj.getType();
 	return (*this);
 }
 
