@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:21:59 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/19 11:41:41 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:15:31 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ Animal::Animal(const Animal & obj)
 
 Animal & Animal::operator=(const Animal & obj)
 {
+	if (this == &obj)
+		return (*this);
 	this->type = obj.type;
 	return (*this);
 }

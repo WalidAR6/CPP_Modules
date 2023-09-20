@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:07:06 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/19 11:41:30 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:16:20 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ Cat::Cat(const Cat & obj)
 
 Cat & Cat::operator=(const Cat & obj)
 {
+	if (this == &obj)
+		return (*this);
 	this->type = obj.getType();
 	return (*this);
 }
