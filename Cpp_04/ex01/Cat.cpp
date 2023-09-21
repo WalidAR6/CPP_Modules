@@ -6,13 +6,13 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:07:06 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/20 20:00:20 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:41:26 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat():Animal("Cat")
+Cat::Cat() : Animal("Cat")
 {
 	std::cout << "Cat default constuctor called" << std::endl;
 	this->brain = new Brain();

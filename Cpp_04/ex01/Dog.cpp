@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:13:08 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/20 19:59:29 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/21 10:34:58 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Dog::Dog():Animal("Dog")
 
 Dog::Dog(const Dog & obj)
 {
+	this->brain = NULL;
 	*this = obj;
 }
 

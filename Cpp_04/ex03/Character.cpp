@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 23:28:54 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/20 21:32:52 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/21 14:09:44 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,10 @@ void Character::equip(AMateria  *a)
         if (slots[i] == NULL)
         {
             slots[i] = a;
-            break;
+            return ;
         }
     }
+    delete a; 
 }
 
 void Character::unequip(int idx)

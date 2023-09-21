@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:06:42 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/20 22:34:33 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/21 12:49:33 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,10 @@ void MateriaSource::learnMateria(AMateria *m)
         if (clones[i] == NULL)
         {
             clones[i] = m;
-            break;
+            return;
         }
     }
+    delete m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
