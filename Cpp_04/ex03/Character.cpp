@@ -6,15 +6,25 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 23:28:54 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/21 14:09:44 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:00:10 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include <cstddef>
+#include <ostream>
+
+Character::Character()
+{
+    std::cout << "Charatcter: Default constructor called" << std::endl;
+    this->name = "default";
+    for (int i = 0; i < 4; i++)
+        this->slots[i] = NULL;
+}
 
 Character::Character(std::string name)
 {
+    std::cout << "Character: Parametrized constructor called" << std::endl;
     this->name = name;
     for (int i = 0; i < 4; i++)
         this->slots[i] = NULL;
@@ -22,6 +32,7 @@ Character::Character(std::string name)
 
 Character::Character(const Character & obj)
 {
+    std::cout << "Character: copy constructor called" << std::endl;
     *this = obj;
 }
 
@@ -46,6 +57,7 @@ Character & Character::operator=(const Character & obj)
 
 Character::~Character()
 {
+    std::cout << "Character: Destructor called" << std::endl;
     for (int i = 0; i < 4; i++)
     {
         delete slots[i];

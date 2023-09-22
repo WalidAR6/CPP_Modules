@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 23:28:59 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/20 20:54:57 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:56:08 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Character : public ICharacter
         std::string name;
         AMateria *slots[4];
     public:
+        Character();
         Character(std::string name);
         Character(const Character & obj);
         Character& operator=(const Character & obj);

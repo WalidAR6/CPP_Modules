@@ -6,16 +6,17 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 19:46:18 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/20 20:23:40 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:03:42 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Ice.hpp"
 
-Ice::Ice():AMateria("ice"){}
+Ice::Ice():AMateria("ice"){std::cout << "Ice : Default constructor called" << std::endl;}
 
 Ice::Ice(const Ice & obj)
 {
+    std::cout << "Ice : Copy constructor called" << std::endl;
     *this = obj;
 }
 
@@ -27,7 +28,7 @@ Ice &Ice::operator=(const Ice & obj)
     return (*this);
 }
 
-Ice::~Ice(){}
+Ice::~Ice(){std::cout << "Ice : Destructor called" << std::endl;}
 
 Ice* Ice::clone() const
 {

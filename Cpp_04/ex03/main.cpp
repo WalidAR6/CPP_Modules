@@ -6,11 +6,10 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 19:39:14 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/21 13:12:18 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:07:08 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
 #include "Character.hpp"
@@ -22,7 +21,7 @@ void ff(){
 
 int main()
 {
-    atexit(ff);
+    // atexit(ff);
     
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
@@ -36,20 +35,12 @@ int main()
     me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
-    tmp = src->createMateria("ice");
-    me->equip(tmp);
-    tmp = src->createMateria("cure");
-    me->equip(tmp);
-    tmp = src->createMateria("ice");
-    me->equip(tmp);
-    tmp = src->createMateria("cure");
-    me->equip(tmp);
-    // ICharacter* bob = new Character("bob");
+    ICharacter* bob = new Character("bob");
     
-    // me->use(0, *bob);
-    // me->use(1, *bob);
+    me->use(0, *bob);
+    me->use(1, *bob);
     
-    // delete bob;
+    delete bob;
     delete me;
     delete src;
 

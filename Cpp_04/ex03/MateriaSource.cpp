@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:06:42 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/21 12:49:33 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 13:04:53 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 MateriaSource::MateriaSource()
 {
+    std::cout << "MateriaSource : Default constructor called" << std::endl;
     for (int i = 0; i < 4; i++)
         this->clones[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource & obj)
 {
+    std::cout << "MateriaSource : Copy constructor called" << std::endl;
     *this = obj;
 }
 
@@ -43,6 +45,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource & obj)
 
 MateriaSource::~MateriaSource()
 {
+    std::cout << "MateriaSource : Destructor called" << std::endl;
     for (int i = 0; i < 4; i++)
     {
         delete clones[i];
