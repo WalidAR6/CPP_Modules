@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:15:48 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/20 15:47:20 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:43:12 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 # define WRONG_CAT_H
 
 #include "WrongAnimal.hpp"
-#include "Brain.hpp"
+
 class WrongCat : public WrongAnimal
 {
-	private:
-		Brain* brain;
     public:
 		WrongCat();
 		WrongCat(const WrongCat & obj);
