@@ -6,20 +6,21 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:07:06 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/20 20:00:20 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:58:11 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat():Animal("Cat")
+Cat::Cat() : Animal("Cat")
 {
-	std::cout << "Cat default constuctor called" << std::endl;
+	std::cout << "Cat: Default constuctor called" << std::endl;
 	this->brain = new Brain();
 }
 
 Cat::Cat(const Cat & obj)
 {
+	std::cout << "Cat: Copy constuctor called" << std::endl;
 	this->brain = NULL;
 	*this = obj;
 }
@@ -42,6 +43,6 @@ void Cat::makeSound() const
 
 Cat::~Cat()
 {
-	std::cout << "Cat Destructor called" << std::endl;
+	std::cout << "Cat: Destructor called" << std::endl;
 	delete brain;
 }
