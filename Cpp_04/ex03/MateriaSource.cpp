@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 17:06:42 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/22 13:04:53 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:22:13 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource & obj)
             delete clones[i];
             clones[i] = NULL;
         }
-        if (this->clones[i])
+        if (obj.clones[i])
             this->clones[i] = obj.clones[i]->clone();
     }
     return (*this);

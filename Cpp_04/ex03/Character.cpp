@@ -6,13 +6,11 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 23:28:54 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/22 13:00:10 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 18:57:02 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
-#include <cstddef>
-#include <ostream>
 
 Character::Character()
 {
