@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:11:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/20 19:33:13 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 20:02:43 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Dog : public Animal
 		Dog & operator=(const Dog & obj);
 		~Dog();
 
-		virtual void makeSound() const;
+		void makeSound() const;
 };
 
 #endif

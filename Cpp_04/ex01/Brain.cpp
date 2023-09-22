@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 16:14:29 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/22 16:57:22 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 19:37:53 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 Brain::Brain()
 {
 	std::cout << "Brain: Default constructor called" << std::endl;
+	for (int i = 0; i < 100; i++)
+	{
+		this->ideas[i] = "idea";
+	}
 }
 
 Brain::Brain(const Brain & obj)
@@ -39,3 +43,4 @@ Brain &Brain::operator=(const Brain & obj)
 	}
 	return (*this);
 }
+
