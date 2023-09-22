@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:13:08 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/21 10:34:58 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:58:43 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 Dog::Dog():Animal("Dog")
 {
-	std::cout << "Dog default constuctor called" << std::endl;
+	std::cout << "Dog: Default constuctor called" << std::endl;
 	this->brain = new Brain();
 }
 
 Dog::Dog(const Dog & obj)
 {
+	std::cout << "Dog: Copy constuctor called" << std::endl;
 	this->brain = NULL;
 	*this = obj;
 }
@@ -42,6 +43,6 @@ void Dog::makeSound() const
 
 Dog::~Dog()
 {
-	std::cout << "Dog Destructor called" << std::endl;
+	std::cout << "Dog: Destructor called" << std::endl;
 	delete brain;
 }

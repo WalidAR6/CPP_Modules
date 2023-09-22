@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:15:14 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/22 12:43:27 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 16:59:44 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 WrongCat::WrongCat():WrongAnimal("WrongCat")
 {
-	std::cout << "WrongCat default constuctor called" << std::endl;
+	std::cout << "WrongCat: Default constuctor called" << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat & obj)
 {
+	std::cout << "WrongCat: Copy constuctor called" << std::endl;
 	*this = obj;
 }
 
@@ -38,5 +39,5 @@ void WrongCat::makeSound() const
 
 WrongCat::~WrongCat()
 {
-	std::cout << "WrongCat Destructor called" << std::endl;
+	std::cout << "WrongCat: Destructor called" << std::endl;
 }
