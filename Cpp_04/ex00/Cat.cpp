@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 20:07:06 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/20 20:05:53 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/09/22 15:59:43 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 Cat::Cat():Animal("Cat")
 {
-	std::cout << "Cat default constructor called" << std::endl;
+	std::cout << "Cat: Default constructor called" << std::endl;
 }
 
 Cat::Cat(const Cat & obj)
 {
+	std::cout << "Cat: Copy constructor called" << std::endl;
 	*this = obj;
 }
 
@@ -38,5 +39,5 @@ void Cat::makeSound() const
 
 Cat::~Cat()
 {
-	std::cout << "Cat Destructor called" << std::endl;
+	std::cout << "Cat: Destructor called" << std::endl;
 }
