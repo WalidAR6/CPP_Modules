@@ -6,24 +6,24 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:15 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 18:02:11 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/02 20:07:36 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ShrubberyCreationForm.hpp"
 # include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreation", 145, 137), target("default")
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("shrubbery creation", 145, 137), target("default")
 {
     std::cout << "ShrubberyCreation: Default constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("ShrubberyCreation", 145, 137), target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("shrubbery creation", 145, 137), target(target)
 {
     std::cout << "ShrubberyCreation: Parametrized constructor called" << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & obj) : AForm("ShrubberyCreation", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & obj) : AForm("shrubbery creation", 145, 137)
 {
     std::cout << "ShrubberyCreation: Copy constructor called" << std::endl;
     *this = obj;

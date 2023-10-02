@@ -6,23 +6,23 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 18:01:14 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/02 20:06:54 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardon", 25, 5), target("default")
+PresidentialPardonForm::PresidentialPardonForm() : AForm("presidential pardon", 25, 5), target("default")
 {
     std::cout << "PresidentialPardon: Default constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardon", 25, 5), target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("presidential pardon", 25, 5), target(target)
 {
     std::cout << "PresidentialPardon: Parametrized constructor called" << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & obj) : AForm("PresidentialPardon", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm & obj) : AForm("presidential pardon", 25, 5)
 {
     std::cout << "PresidentialPardon: Copy constructor called" << std::endl;
     *this = obj;

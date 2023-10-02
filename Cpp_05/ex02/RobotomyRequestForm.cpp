@@ -6,23 +6,23 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:10 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 17:59:43 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/02 20:07:13 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequest", 72, 45), target("default")
+RobotomyRequestForm::RobotomyRequestForm() : AForm("robotomy request", 72, 45), target("default")
 {
     std::cout << "RobotomyRequest: Default constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequest", 72, 45), target(target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("robotomy request", 72, 45), target(target)
 {
     std::cout << "RobotomyRequest: Parametrized constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & obj) : AForm("RobotomyRequest", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm & obj) : AForm("robotomy request", 72, 45)
 {
     std::cout << "RobotomyRequest: Copy constructor called" << std::endl;
     *this = obj;
