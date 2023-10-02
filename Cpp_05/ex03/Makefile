@@ -9,13 +9,14 @@ SRC = main.cpp\
 		AForm.cpp\
 		ShrubberyCreationForm.cpp\
 		RobotomyRequestForm.cpp\
-		PresidentialPardonForm.cpp
+		PresidentialPardonForm.cpp\
+		Intern.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-%.o:%.cpp Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+%.o:%.cpp Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
 	$(CC) $(FLAG) -c $< -o $@
 
 $(NAME):$(OBJ)
