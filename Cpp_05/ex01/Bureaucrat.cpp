@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:58:46 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 14:40:15 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/02 15:23:32 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,5 @@ void Bureaucrat::signForm(const Form & obj)
     if (obj.getIndicator() == true)
         std::cout << this->name << " signed " << obj.getName() << std::endl;
     if (obj.getIndicator() == false)
-        std::cout << this->name << " couldn't sign " << obj.getName() << " because grade isn't to high." << std::endl;;
+        std::cout << this->name << " couldn't sign " << obj.getName() << " because grade isn't to low." << std::endl;;
 }
