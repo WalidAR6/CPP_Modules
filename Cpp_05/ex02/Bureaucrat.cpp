@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:58:46 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 18:13:00 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/02 21:28:15 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ void Bureaucrat::signForm(const AForm & obj)
 
 void Bureaucrat::executeForm(AForm const & form)
 {
-    if (form.getIndicator() == true && grade <= 0)
+    if (form.getIndicator() == true && grade <= form.getExecGrade())
         form.execute(*this);
     else
         std::cout << "can't execute the form" << std::endl;

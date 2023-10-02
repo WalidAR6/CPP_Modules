@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 16:11:44 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 16:02:34 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/02 20:25:19 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class AForm
         AForm(std::string name, int signGrade, int execGrade);
         AForm(const AForm & obj);
         AForm & operator=(const AForm & obj);
-        ~AForm();
+        virtual ~AForm();
         
         const std::string getName() const;
         bool getIndicator() const;

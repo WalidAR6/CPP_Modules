@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:15 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 20:06:27 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/02 20:46:10 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         infile << "          ~~~w/w~'~~,\\` `:/,-(~)~~~~~~~~~o~\\~/~w|/~      " << std::endl;
         infile << "      ~~~~~~~~~~~~~~~~~~~~~~~\\W~~~~~~~~~~~~\\|/~~         " << std::endl;
     }
-    catch (const std::string & e)
+    catch (const char * e)
     {
         std::cout << e << std::endl;
     }

@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:10 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 20:06:08 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/02 20:45:54 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
             throw "The robotomy failed";
         std::cout << "That " << target << "has been robotomized successfully 50% of the time" << std::endl;
     }
-    catch (const std::string & e)
+    catch (const char * e)
     {
         std::cout << e <<  std::endl;
     }

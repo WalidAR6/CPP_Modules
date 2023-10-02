@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 20:05:40 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/02 20:46:02 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
             throw "No prisendential pardon";
         std::cout << "That " << target << "has been pardoned by Zaphod Beeblebrox" << std::endl;
     }
-    catch (const std::string & e)
+    catch (const char * e)
     {
         std::cout << e <<  std::endl;
     }
