@@ -6,11 +6,12 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:04 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 20:06:54 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:27:04 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "PresidentialPardonForm.hpp"
+#include <exception>
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm("presidential pardon", 25, 5), target("default")
 {
@@ -41,16 +42,21 @@ PresidentialPardonForm::~PresidentialPardonForm()
     std::cout << "PresidentialPardon: Destructor called" << std::endl;
 }
 
+const char * PresidentialPardonForm::NoPardonException::what() const throw()
+{
+    return ("No presidenatial pardon");
+}
+
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
     try
     {
-        if (executor.getGrade() > 0 || getIndicator() == false)
-            throw "No prisendential pardon";
+        if (executor.getGrade() > getExecGrade() || getIndicator() == false)
+            throw NoPardonException();
         std::cout << "That " << target << "has been pardoned by Zaphod Beeblebrox" << std::endl;
     }
-    catch (const std::string & e)
+    catch (const std::exception & e)
     {
-        std::cout << e <<  std::endl;
+        std::cout << "Error: " << e.what() <<  std::endl;
     }
 }

@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:17 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 16:48:14 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:24:25 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SHRUBERY_CRE_FORM
 
 # include "AForm.hpp"
+#include <exception>
 
 class ShrubberyCreationForm : public AForm
 {
@@ -25,7 +26,11 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(const ShrubberyCreationForm & obj);
         ShrubberyCreationForm & operator=(const ShrubberyCreationForm & obj);
         ~ShrubberyCreationForm();
-
+        class ShrubberyCreationException : public std::exception
+        {
+            public:
+                const char * what() const throw();
+        };
         void execute(Bureaucrat const & executor) const;
 };
 

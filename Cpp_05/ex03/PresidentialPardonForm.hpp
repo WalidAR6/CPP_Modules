@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:07 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 16:38:32 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:26:38 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ class PresidentialPardonForm : public AForm
         PresidentialPardonForm & operator=(const PresidentialPardonForm & obj);
         ~PresidentialPardonForm();
 
+        class NoPardonException : public std::exception
+        {
+            public:
+                const char * what() const throw();
+        };
         void execute(Bureaucrat const & executor) const;
 };
 

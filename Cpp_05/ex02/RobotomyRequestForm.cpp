@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:10 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 20:07:13 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:28:35 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,27 @@ RobotomyRequestForm::~RobotomyRequestForm()
     std::cout << "RobotomyRequest: Destructor called" << std::endl;
 }
 
+const char * RobotomyRequestForm::RobotomyRequestException::what() const throw()
+{
+    return ("The robotomy failed");
+}
+
+int robotomySuccess()
+{
+    std::srand(time(NULL));
+    return (rand() % 2);    
+}
+
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     try
     {
-        if (executor.getGrade() > 0 || getIndicator() == false)
-            throw "The robotomy failed";
-        std::cout << "That " << target << "has been robotomized successfully 50% of the time" << std::endl;
+        if (executor.getGrade() > getExecGrade() || getIndicator() == false || !robotomySuccess())
+            throw RobotomyRequestException();
+        std::cout << "That " << target << "has been robotomized successfully." << std::endl;
     }
-    catch (const std::string & e)
+    catch (const std::exception & e)
     {
-        std::cout << e <<  std::endl;
+        std::cout << "Error: " << e.what() <<  std::endl;
     }
 }

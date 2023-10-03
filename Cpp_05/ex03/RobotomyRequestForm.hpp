@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:12 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 16:46:53 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:29:29 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ class RobotomyRequestForm : public AForm
         RobotomyRequestForm & operator=(const RobotomyRequestForm & obj);
         ~RobotomyRequestForm();
         
+        class RobotomyRequestException : public std::exception
+        {
+            public:
+                const char * what() const throw();
+        };
         void execute(Bureaucrat const & executor) const;
 };
 

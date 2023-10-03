@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:12 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 16:46:53 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/03 15:21:32 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ROBO_REQ_FORM
 
 # include "AForm.hpp"
+#include <exception>
 
 class RobotomyRequestForm : public AForm
 {
@@ -25,7 +26,11 @@ class RobotomyRequestForm : public AForm
         RobotomyRequestForm(const RobotomyRequestForm & obj);
         RobotomyRequestForm & operator=(const RobotomyRequestForm & obj);
         ~RobotomyRequestForm();
-        
+        class RobotomyRequestException : public std::exception
+        {
+            public:
+                const char * what() const throw();
+        };
         void execute(Bureaucrat const & executor) const;
 };
 

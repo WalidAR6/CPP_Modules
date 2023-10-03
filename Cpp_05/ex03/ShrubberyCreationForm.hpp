@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:17 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 16:48:14 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:30:39 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm & operator=(const ShrubberyCreationForm & obj);
         ~ShrubberyCreationForm();
 
+        class ShrubberyCreationException : public std::exception
+        {
+            public:
+                const char * what() const throw();
+        };
         void execute(Bureaucrat const & executor) const;
 };
 
