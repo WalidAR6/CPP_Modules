@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:47:31 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/30 21:26:28 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/08 13:57:16 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define BUREAUCRAT_H
 
 # include <exception>
-#include <fstream>
 # include <iostream>
 
 class Bureaucrat

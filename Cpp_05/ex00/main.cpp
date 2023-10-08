@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:47:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/30 21:30:08 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/08 13:54:40 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,68 @@
 
 int main()
 {
-    Bureaucrat a("walid", 149);
-    for (int i = 0; i < 4; i++)
+    try
     {
-        a.decGrade();
+        Bureaucrat b("bureaucrat1", 120);
+        b.decGrade();  
+        std::cout << b << std::endl;
+        b.incGrade();
+        std::cout << b << std::endl;
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "---------------------------" << std::endl;
+    
+    try
+    {
+        Bureaucrat b("bureaucrat2", 1);
+        b.incGrade();
+        std::cout << b << std::endl;
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
     }
     
-    for (int i = 0; i < 6; i++)
+    std::cout << "---------------------------" << std::endl;
+    
+    try
     {
-        a.incGrade();
+        Bureaucrat b("bureaucrat3", 150);
+        b.decGrade();  
+        std::cout << b << std::endl;
     }
-    std::cout << a << std::endl;
+    catch (std::exception & e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    
+    std::cout << "---------------------------" << std::endl;
+    
+    try
+    {
+        Bureaucrat b("bureaucrat4", 0);
+        b.decGrade();  
+        std::cout << b << std::endl;
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    
+    std::cout << "---------------------------" << std::endl;
+    
+    try
+    {
+        Bureaucrat b("bureaucrat5", 151);
+        b.decGrade();  
+        std::cout << b << std::endl;
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
 }

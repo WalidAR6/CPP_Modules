@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:58:46 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/30 21:26:35 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/08 13:56:13 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,10 @@ Bureaucrat::Bureaucrat() : name("Bureaucrat"), grade(1)
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
 {
     std::cout << "Bureaucrat: Parametrized constructor called" << std::endl;
-    try
-    {
-        if (grade <= 0)
-            throw GradeTooHighException();
-        if (grade > 150)
-            throw GradeTooLowException();
-    }
-    catch (const std::exception & e)
-    {
-        std::cout << "Error: " << e.what() << std::endl;
-    }
+    if (grade <= 0)
+        throw GradeTooHighException();
+    if (grade > 150)
+        throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat & obj) : name(obj.name)
@@ -74,30 +67,16 @@ int Bureaucrat::getGrade() const
 
 void Bureaucrat::incGrade()
 {
+    if (grade - 1 <= 0)
+        throw GradeTooHighException();
     grade--;
-    try
-    {
-        if (grade <= 0)
-            throw GradeTooHighException();
-    }
-    catch (const std::exception & e)
-    {
-        std::cout << "Error: " << e.what() << std::endl;
-    }
 }
 
 void Bureaucrat::decGrade()
 {
+    if (grade + 1 > 150)
+        throw GradeTooLowException();
     grade++;
-    try
-    {
-        if (grade > 150)
-            throw GradeTooLowException();
-    }
-    catch (const std::exception & e)
-    {
-        std::cout << "Error: " << e.what() << std::endl;
-    }
 }
 
 std::ostream &operator<<(std::ostream &i, const Bureaucrat & obj)
