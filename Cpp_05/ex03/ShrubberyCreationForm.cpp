@@ -6,12 +6,11 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:15 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/03 16:31:21 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/09 18:59:18 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "ShrubberyCreationForm.hpp"
-#include <exception>
 # include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("shrubbery creation", 145, 137), target("default")
@@ -55,6 +54,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         if (executor.getGrade() > 0 || getIndicator() == false)
             throw ShrubberyCreationForm();
         std::ofstream infile(target + "_shrubbery");
+        if (infile.fail())
+            throw ShrubberyCreationException();
         infile << "                    .        +          .      .          ." << std::endl;
         infile << "     .            _        .                    .          " << std::endl;
         infile << "  ,              /;-._,-.____        ,-----.__             " << std::endl;
@@ -78,10 +79,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
         infile << "                      |:::|\\    |                         " << std::endl;
         infile << "              O       |:::/| |  |                  (o      " << std::endl;
         infile << "               )  ___/#\\::`/ (O)'==._____   O, (O) /`     " << std::endl;
-        infile << "          ~~~w/w~'~~,\\` `:/,-(~)~~~~~~~~~o~\\~/~w|/~      " << std::endl;
-        infile << "      ~~~~~~~~~~~~~~~~~~~~~~~\\W~~~~~~~~~~~~\\|/~~         " << std::endl;
     }
-    catch (const std::exception & e)
+    catch (std::exception & e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }

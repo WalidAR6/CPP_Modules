@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:47:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 20:46:26 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:04:14 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@
 
 int main()
 {
-    Bureaucrat bur("walid", 0);
+    try
+    {
+        Bureaucrat bur("walid", 1);
+        Intern a;
+        AForm *rr;
 
-    // ShrubberyCreationForm shr("home");
-    // shr.beSigned(bur);
-    
-    // bur.executeForm(shr);
-    
-    Intern a;
-    (void)a;
-    AForm *rr;
+        rr = a.makeForm("shrubbery creation", "Bender");
 
-    rr = a.makeForm("shrubbery creation", "Bender");
-
-    std::cout << rr->getName() <<  std::endl;
-    rr->beSigned(bur);
-    rr->execute(bur);
+        std::cout << rr->getName() <<  std::endl;
+        rr->beSigned(bur);
+        rr->execute(bur);
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
 }

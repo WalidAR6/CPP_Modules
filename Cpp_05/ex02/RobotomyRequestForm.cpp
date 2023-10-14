@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:10 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/03 16:28:35 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:05:42 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
             throw RobotomyRequestException();
         std::cout << "That " << target << "has been robotomized successfully." << std::endl;
     }
-    catch (const std::exception & e)
+    catch (std::exception & e)
     {
         std::cout << "Error: " << e.what() <<  std::endl;
     }

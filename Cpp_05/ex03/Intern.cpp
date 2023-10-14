@@ -6,16 +6,14 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 18:15:58 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 20:43:56 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:41:19 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
-#include <cstddef>
 
 Intern::Intern()
 {

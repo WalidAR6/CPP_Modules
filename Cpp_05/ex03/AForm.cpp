@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 17:58:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 16:02:41 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:49:25 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,10 @@ AForm::AForm() : name("Default"), indicator(false), signGrade(1), execGrade(1)
 AForm::AForm(std::string name, int signGrade, int execGrade) : name(name), indicator(false), signGrade(signGrade), execGrade(execGrade)
 {
     std::cout << "AForm: Parametrized constructor called" << std::endl;
-    try
-    {
-        if (this->signGrade <= 0)
-            throw GradeTooHighException();
-        if (this->signGrade > 150)
-            throw GradeTooLowException();
-    }
-    catch (const std::exception & e)
-    {
-        std::cout << "SignGrade Error: " << e.what() << std::endl;
-    }
-
-    try
-    {
-        if (this->execGrade <= 0)
-            throw GradeTooHighException();
-        if (this->execGrade > 150)
-            throw GradeTooLowException();
-    }
-    catch (const std::exception & e)
-    {
-        std::cout << "ExecGrade Error: " << e.what() << std::endl;
-    }
+    if (this->signGrade <= 0 || this->execGrade <= 0)
+        throw GradeTooHighException();
+    if (this->signGrade > 150 || this->execGrade > 150)
+        throw GradeTooLowException();
 }
 
 AForm::AForm(const AForm & obj) : name(obj.name), signGrade(obj.signGrade), execGrade(obj.execGrade)
@@ -102,7 +83,7 @@ void AForm::beSigned(const Bureaucrat & obj)
         if (obj.getGrade() > 150)
             throw GradeTooLowException();
     }
-    catch (const std::exception & e)
+    catch (std::exception & e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
