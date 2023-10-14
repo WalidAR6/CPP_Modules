@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 23:46:36 by waraissi          #+#    #+#             */
-/*   Updated: 2023/09/16 03:05:41 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/10/10 16:56:22 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 int main()
 {
     {
-        Point a(7 , 7);
-        Point b(11 , 1);
-        Point c(2 , 2);
-        Point d(5 , 3);
+        Point a(-6.01836f, 6.66808f);
+        Point b(-3.56638f, 0.57856f);
+        Point c(2.36147f, 4.80889f);
+        Point d(-4.46903f, 5.26695f);
 
         if (bsp(a, b, c, d) == true)
             std::cout << "the point is inside the triangle" << std::endl;
