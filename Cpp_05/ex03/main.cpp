@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:47:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/09 19:04:14 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/11 02:37:03 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,129 @@
 #include "Intern.hpp"
 #include "ShrubberyCreationForm.hpp"
 
+void ff()
+{
+    system("leaks FormC");    
+}
+
 int main()
 {
+    std::atexit(ff);
     try
     {
         Bureaucrat bur("walid", 1);
         Intern a;
         AForm *rr;
-
         rr = a.makeForm("shrubbery creation", "Bender");
+        if (rr)
+        {
+            std::cout << rr->getName() <<  std::endl;
+            rr->beSigned(bur);
+            rr->execute(bur);
+        }
+        delete rr;
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    
+    std::cout << "----------------------------------------------------" << std::endl;
+    
+    try
+    {
+        Bureaucrat bur("walid", 1);
+        Intern a;
+        AForm *rr;
+        rr = a.makeForm("shrubbery creation", "Bender");
+        if (rr)
+        {
+            std::cout << rr->getName() <<  std::endl;
+            rr->execute(bur);
+        }
+        delete rr;
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+    
+    std::cout << "----------------------------------------------------" << std::endl; 
+    
+    try
+    {
+        Bureaucrat bur("walid", 1);
+        Intern a;
+        AForm *rr;
+        rr = a.makeForm("robotomy request", "Bender");
+        if (rr)
+        {
+            std::cout << rr->getName() <<  std::endl;
+            rr->beSigned(bur);
+            rr->execute(bur);
+        }
+        delete rr;
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
 
-        std::cout << rr->getName() <<  std::endl;
-        rr->beSigned(bur);
-        rr->execute(bur);
+    std::cout << "-----------------------------ok-----------------------" << std::endl; 
+    
+    try
+    {
+        Bureaucrat bur("walid", 1);
+        Intern a;
+        AForm *rr;
+        rr = a.makeForm("robotomy request", "Bender");
+        if (rr)
+        {
+            std::cout << rr->getName() <<  std::endl;
+            rr->execute(bur);
+        }
+        delete rr;
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "----------------------------------------------------" << std::endl; 
+
+    try
+    {
+        Bureaucrat bur("walid", 1);
+        Intern a;
+        AForm *rr;
+        rr = a.makeForm("presidential pardon", "Bender");
+        if (rr)
+        {
+            std::cout << rr->getName() <<  std::endl;
+            rr->beSigned(bur);
+            rr->execute(bur);
+        }   
+        delete rr;
+    }
+    catch (std::exception & e)
+    {
+        std::cout << "Exception: " << e.what() << std::endl;
+    }
+
+    std::cout << "----------------------------------------------------" << std::endl;
+
+    try
+    {
+        Bureaucrat bur("walid", 1);
+        Intern a;
+        AForm *rr;
+        rr = a.makeForm("presidential pardon", "Bender");
+        if (rr)
+        {
+            std::cout << rr->getName() <<  std::endl;
+            rr->execute(bur);        
+        }
+        delete rr;
     }
     catch (std::exception & e)
     {

@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 17:58:21 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/09 12:49:25 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/09 21:37:47 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,11 @@ const int & AForm::getExecGrade() const
 
 void AForm::beSigned(const Bureaucrat & obj)
 {
-    if (obj.getGrade() <= 0)
+    if (obj.getGrade() <= signGrade)
         this->indicator = true;
     try
     {
-        if (obj.getGrade() > 150)
+        if (obj.getGrade() > signGrade)
             throw GradeTooLowException();
     }
     catch (std::exception & e)

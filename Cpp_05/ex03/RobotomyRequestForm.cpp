@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:10 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/09 12:43:56 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:22:35 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     try
     {
-        if (executor.getGrade() > 0 || getIndicator() == false || !robotomySuccess())
+        if (executor.getGrade() > getExecGrade() || getIndicator() == false || !robotomySuccess())
             throw RobotomyRequestException();
         std::cout << "That " << target << "has been robotomized successfully." << std::endl;
     }

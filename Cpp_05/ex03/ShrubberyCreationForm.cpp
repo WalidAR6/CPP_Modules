@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 15:33:15 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/09 18:59:18 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/09 21:34:13 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
     try
     {
-        if (executor.getGrade() > 0 || getIndicator() == false)
-            throw ShrubberyCreationForm();
+        if (executor.getGrade() > getExecGrade() || getIndicator() == false)
+            throw ShrubberyCreationException();
         std::ofstream infile(target + "_shrubbery");
         if (infile.fail())
             throw ShrubberyCreationException();

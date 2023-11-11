@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 18:15:58 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/09 12:41:19 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/10 17:28:02 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ Intern::Intern()
     std::cout << "Intern: Default constructor called" << std::endl;
 }
 
-Intern::Intern(const Intern & obj)
+Intern::Intern(const Intern &obj)
 {
     std::cout << "Intern: Copy constructor called" << std::endl;
     *this = obj;
 }
 
-Intern & Intern::operator=(const Intern & obj)
+Intern &Intern::operator=(const Intern &obj)
 {
     (void)obj;
     return (*this);
@@ -40,21 +40,27 @@ Intern::~Intern()
 AForm *Intern::makeForm(std::string formName, std::string target)
 {
     int i = 0;
-    AForm *tmp = NULL;
-    ShrubberyCreationForm *shrubbery = new ShrubberyCreationForm(target);
-    PresidentialPardonForm *presidential = new PresidentialPardonForm(target);
-    RobotomyRequestForm *robotomy = new RobotomyRequestForm(target);
-    
-    AForm *arr[] = {robotomy, shrubbery, presidential, NULL};
+
     std::string targ[] = {"robotomy request", "shrubbery creation", "presidential pardon"};
-    
     while (i < 3)
     {
         if (targ[i] == formName)
-            tmp = arr[i];
-        else
-            delete arr[i];
+            break;
         i++;
     }
-    return (tmp);
+    switch (i)
+    {
+        case 0:
+            std::cout << "Intern creates " << targ[i] << std::endl;
+            return (new RobotomyRequestForm(target));
+        case 1:
+            std::cout << "Intern creates " << targ[i] << std::endl;
+            return (new ShrubberyCreationForm(target));
+        case 2:
+            std::cout << "Intern creates " << targ[i] << std::endl;
+            return (new PresidentialPardonForm(target));
+        default:
+            std::cout << "Intern can't create " << formName << std::endl;
+    }
+    return (NULL);
 }
