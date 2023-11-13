@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:47:31 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 21:16:00 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/12 05:17:37 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class Bureaucrat
             public:
                 const char *what() const throw();
         };
-        void signForm(const Form & obj);
+        void signForm(Form & obj);
 };
 
 std::ostream &operator<<(std::ostream &i, const Bureaucrat & obj);

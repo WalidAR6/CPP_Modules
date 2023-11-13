@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:47:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/11 02:37:03 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/11 17:23:09 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,8 @@
 #include "Intern.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-void ff()
-{
-    system("leaks FormC");    
-}
-
 int main()
 {
-    std::atexit(ff);
     try
     {
         Bureaucrat bur("walid", 1);

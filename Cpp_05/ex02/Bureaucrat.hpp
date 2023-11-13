@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:47:31 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 18:06:08 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/11 23:18:15 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class Bureaucrat
             public:
                 const char *what() const throw();
         };
-        void signForm(const AForm & obj);
+        void signForm(AForm & obj);
         void executeForm(AForm const & form);
 };
 

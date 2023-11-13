@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:58:46 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/09 13:11:27 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/12 16:09:44 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,12 +87,17 @@ std::ostream &operator<<(std::ostream &i, const Bureaucrat & obj)
     return (i);
 }
 
-void Bureaucrat::signForm(const AForm & obj)
+void Bureaucrat::signForm(AForm & obj)
 {
-    if (obj.getIndicator() == true)
-        std::cout << this->name << " signed " << obj.getName() << std::endl;
-    if (obj.getIndicator() == false)
-        std::cout << this->name << " couldn't sign " << obj.getName() << " because grade isn't to low." << std::endl;;
+    try
+    {
+        obj.beSigned(*this);
+        std::cout << this->name << " signed " << obj.getName() << std::endl;  
+    }
+    catch (std::exception & e)
+    {
+        std::cout << this->name << " couldn't sign " << obj.getName() << " because grade isn't to low." << std::endl;
+    }
 }
 
 void Bureaucrat::executeForm(AForm const & form)

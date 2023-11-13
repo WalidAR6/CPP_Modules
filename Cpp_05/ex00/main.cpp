@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:47:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/08 13:54:40 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/11 19:21:59 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main()
 {
     try
     {
-        Bureaucrat b("bureaucrat1", 120);
+        Bureaucrat b("data", 2);
         b.decGrade();  
         std::cout << b << std::endl;
         b.incGrade();

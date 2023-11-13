@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:47:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/09 11:44:27 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/13 11:49:30 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int main()
     {
         Bureaucrat b("walid", 150);
         Form a("A", 37, 88);
-        
-        a.beSigned(b);
+
+        // a.beSigned(b);
 
         std::cout << a.getIndicator() << std::endl;
         b.signForm(a);

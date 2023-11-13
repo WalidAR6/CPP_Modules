@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:58:46 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/08 14:02:58 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/12 15:07:47 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,15 @@ std::ostream &operator<<(std::ostream &i, const Bureaucrat & obj)
     return (i);
 }
 
-void Bureaucrat::signForm(const Form & obj)
+void Bureaucrat::signForm(Form & obj)
 {
-    if (obj.getIndicator() == true)
+    try
+    {
+        obj.beSigned(*this);
         std::cout << this->name << " signed " << obj.getName() << std::endl;
-    if (obj.getIndicator() == false)
+    }
+    catch (std::exception & e)
+    {    
         std::cout << this->name << " couldn't sign " << obj.getName() << " because grade is to low." << std::endl;
+    }
 }

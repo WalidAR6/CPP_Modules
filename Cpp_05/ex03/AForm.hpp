@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 16:11:44 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/02 20:24:16 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/12 05:26:06 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class AForm
         bool getIndicator() const;
         const int & getSignGrade() const;
         const int & getExecGrade() const;
-        void beSigned(const Bureaucrat & b);
+        void beSigned(Bureaucrat & b);
         virtual void execute(Bureaucrat const & executor) const = 0;
         class GradeTooHighException : public std::exception
         {

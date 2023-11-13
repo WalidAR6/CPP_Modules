@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:47:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/10/09 13:07:36 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/11 19:31:58 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,7 @@ int main()
         Bureaucrat bur("bur2", 20);
         RobotomyRequestForm rob("robot");
         
-        rob.beSigned(bur);
-
+        bur.signForm(rob);
         bur.executeForm(rob);
     }
     catch (std::exception & e)
