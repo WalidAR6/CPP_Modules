@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:47:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/13 11:49:30 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/17 17:25:54 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main()
     {
         std::cout << "Exception: " << e.what() << std::endl;
     }
-    
+
     std::cout << "--------------------------" << std::endl;
 
     try
