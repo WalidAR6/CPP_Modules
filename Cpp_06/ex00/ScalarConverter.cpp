@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 09:38:57 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/19 19:17:26 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/21 22:46:59 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void displayMsg(char c, long i, float f, double d)
 void outputInt(std::string &str)
 {
     std::stringstream ss;
-    int num;
+    long num;
 
     ss << str;
     if (!(ss >> num))

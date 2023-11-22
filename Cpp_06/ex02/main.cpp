@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:09:45 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/21 13:38:19 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/22 11:28:07 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int main()
     Base b;
 
     Base *bl = b.generate();
-
     b.identify(bl);
     b.identify(*bl);
     delete bl;

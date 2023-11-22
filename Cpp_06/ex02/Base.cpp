@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:09:39 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/21 13:37:56 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/22 11:27:36 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,12 @@ void Base::identify(Base *p)
 {
     if (dynamic_cast<A *>(p))
         std::cout << "Type A" << std::endl;
-    if (dynamic_cast<B *>(p))
+    else if (dynamic_cast<B *>(p))
         std::cout << "Type B" << std::endl;
-    if (dynamic_cast<C *>(p))
+    else if (dynamic_cast<C *>(p))
         std::cout << "Type C" << std::endl;
+    else
+        std::cout << "Unknown type" << std::endl;
 }
 
 void Base::identify(Base &p)
@@ -45,16 +47,27 @@ void Base::identify(Base &p)
         A &a = dynamic_cast<A &>(p);
         (void)a;
         std::cout << "Type A" << std::endl;
-    } catch ( ... ){}
-    try{
-        B &b = dynamic_cast<B &>(p);
-        (void)b;
-        std::cout << "Type B" << std::endl;
-    } catch ( ... ){}
-    try{
-        C &c = dynamic_cast<C &>(p);
-        (void)c;
-        std::cout << "Type C" << std::endl;
-    } catch ( ... ){}
+    } catch ( ... )
+    {
+        try
+        {
+            B &b = dynamic_cast<B &>(p);
+            (void)b;
+            std::cout << "Type B" << std::endl;
+        }
+        catch ( ... )
+        {
+            try
+            {
+                C &c = dynamic_cast<C &>(p);
+                (void)c;
+                std::cout << "Type C" << std::endl;
+            }
+            catch ( ... )
+            {
+                std::cout << "Unknown type" << std::endl;
+            }
+        }
+    }
 }
 
