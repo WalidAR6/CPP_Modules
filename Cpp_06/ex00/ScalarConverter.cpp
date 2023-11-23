@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 09:38:57 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/21 22:46:59 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:13:33 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int geType(std::string &str)
 
 void displayMsg(char c, long i, float f, double d)
 {
-    if ((i > 127 || i < 0) && !isprint(c))
+    if ((i > 127 || i < -127) && !isprint(c))
         std::cout << "char     : Impossible" << std::endl;
     else if (!isprint(i))
         std::cout << "char     : Non displayable" << std::endl;
