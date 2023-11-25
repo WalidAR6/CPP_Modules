@@ -4,8 +4,7 @@ FLAG = -Wall -Wextra -Werror -std=c++98
 
 CC = c++
 
-SRC = main.cpp\
-		iter.cpp\
+SRC = main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

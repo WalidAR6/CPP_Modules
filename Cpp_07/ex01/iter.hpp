@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:09:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/24 19:00:40 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/26 00:39:56 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,34 @@
 template <typename T, typename F>
 void iter(T *arr, size_t arraySize, F func)
 {
+    if (!arr || arraySize < 0)
+        return ;
     for (size_t idx = 0; idx < arraySize; idx++)
     {
         func(arr[idx]);
     }
 }
+//TEST TEMPLATES
+template<typename T>
+void uppper(T &str)
+{
+  for(size_t idx = 0; idx < strlen(str);idx++)
+  {
+    std::cout << (char)toupper(str[idx]);
+  }
+  std::cout << std::endl;
+}
 
-// template <typename T>
-// void iter(T *arr, size_t arraySize, void fun(const T &))
-// {
-//     for (size_t idx = 0; idx < arraySize; idx++)
-//     {
-//         func(arr[idx]);    
-//     }
-// }
+template<typename T>
+void incVal(T val)
+{
+  val++;
+}
+
+template <typename T>
+void showIncValues(T val)
+{
+  std::cout << val << std::endl;
+}
 
 #endif
