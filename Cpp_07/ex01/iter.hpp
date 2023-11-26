@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 12:09:13 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/26 00:39:56 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/26 21:33:27 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 template <typename T, typename F>
 void iter(T *arr, size_t arraySize, F func)
 {
-    if (!arr || arraySize < 0)
+    if (!arr)
         return ;
     for (size_t idx = 0; idx < arraySize; idx++)
     {

@@ -6,60 +6,45 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 02:23:26 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/25 19:39:02 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/26 22:08:31 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Array.hpp"
 
-#define MAX_VAL 750
-int main(int, char**)
+int main()
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
-    srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
+    Array<int> nums(10); 
+    
+    try
     {
-        const int value = rand();
-        numbers[i] = value;
-        mirror[i] = value;
+        Array<int> num(-1);   
     }
-    //SCOPE
+    catch (std::exception & e)
     {
-        Array<int> tmp = numbers;
-        Array<int> test(tmp);   
+        std::cout << e.what() << std::endl;
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
+    try
     {
-        if (mirror[i] != numbers[i])
+        for (int idx = 0; idx < 10; idx++)
         {
-            std::cerr << "didn't save the same value!!" << std::endl;
-            return 1;
+            nums[idx] = idx + 3;
+            std::cout << nums[idx] << " ";
         }
+        std::cout << std::endl;
+        nums[21] = 0;
     }
-    try
+    catch (std::exception & e)
     {
-        numbers[-2] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
-    try
-    {
-        numbers[MAX_VAL] = 0;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
+        std::cout << e.what() << std::endl;
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
     {
-        numbers[i] = rand();
+        Array<int>tmp(nums);
+        for (int idx = 0; idx < 10; idx++)
+            std::cout << tmp[idx] << " ";
+        std::cout << std::endl;
     }
-    delete [] mirror;//
-    return 0;
+    
 }

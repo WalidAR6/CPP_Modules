@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 23:53:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/24 00:32:09 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/26 00:54:29 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void swap(T &x, T &y)
 template<typename T>
 T min(T &x, T &y)
 {
-    return (x < y) ? x : y;       
+    return (x < y) ? x : y;    
 }
 
 template<typename T>

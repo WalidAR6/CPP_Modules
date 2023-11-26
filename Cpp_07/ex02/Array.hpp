@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 02:23:37 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/26 00:42:23 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/26 21:43:24 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <exception>
 # include <iostream>
+# include <stdexcept>
 
 template<typename T> class Array
 {
@@ -30,6 +31,8 @@ template<typename T> class Array
         
         Array(unsigned int n)
         {
+            if ((int)n < 0)
+                throw std::runtime_error("INVALID SIZE!!!");
             _size = n;
             array = new T[n];
         }
@@ -54,7 +57,7 @@ template<typename T> class Array
 
         T &operator[](size_t idx)
         {
-            if (idx > size() || idx < 0)
+            if (idx > size())
                 throw std::runtime_error("OUT OF RANGE!!!");
             return array[idx];
         }
