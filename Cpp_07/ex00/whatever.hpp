@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 23:53:00 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/26 00:54:29 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/27 14:10:34 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,19 @@ void swap(T &x, T &y)
 }
 
 template<typename T>
-T min(T &x, T &y)
+T min(const T &x, const T &y)
 {
-    return (x < y) ? x : y;    
+    if (x < y)
+        return (x);
+    return (y);
 }
 
 template<typename T>
-T max(T &x, T &y)
+T max(const T &x, const T &y)
 {
-    return (x > y) ? x : y;
+    if (x > y)
+        return (x);
+    return (y);
 }
 
 #endif
