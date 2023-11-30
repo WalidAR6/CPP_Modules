@@ -6,21 +6,18 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 15:40:49 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/29 23:30:45 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/11/30 18:52:44 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Span.hpp"
-#include <algorithm>
-#include <iterator>
-# include <stdexcept>
-#include <sys/_types/_size_t.h>
-# include <vector>
 
 Span::Span(){}
 
 Span::Span(unsigned int N)
 {
+    if ((int)N < 0)
+        throw std::runtime_error("INVALID RANGE!!!");
     num = N;
 }
 
@@ -51,12 +48,13 @@ int Span::shortestSpan()
     if (vec.size() <= 1)
         throw std::runtime_error("NO SPAN CAN BE FOUND!!!");
     int tmp = 0;
-    int res = abs(*vec.begin() - *(vec.begin() + 1));
+    std::sort(vec.begin(), vec.end());
+    int res = *(vec.begin() + 1) - *vec.begin();
     for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
     {
         for (std::vector<int>::iterator it2 = it + 1; it2 != vec.end(); it2++)
         {
-            tmp = abs(*it - *it2);
+            tmp = *it2 - *it;
             if (tmp < res)
                 res = tmp;
         }
