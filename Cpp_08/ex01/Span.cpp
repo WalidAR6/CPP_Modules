@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 15:40:49 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/30 18:52:44 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:49:18 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,15 @@ int Span::shortestSpan()
 {
     if (vec.size() <= 1)
         throw std::runtime_error("NO SPAN CAN BE FOUND!!!");
-    int tmp = 0;
     std::sort(vec.begin(), vec.end());
+    int tmp = 0;
     int res = *(vec.begin() + 1) - *vec.begin();
-    for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
+    size_t i = vec.size();
+    for (std::vector<int>::iterator it = vec.end() - 1; i > 1; it--,i--)
     {
-        for (std::vector<int>::iterator it2 = it + 1; it2 != vec.end(); it2++)
-        {
-            tmp = *it2 - *it;
-            if (tmp < res)
-                res = tmp;
-        }
+        tmp = *it - *(it - 1);
+        if (tmp < res)
+            res = tmp;
     }
     return (res);
 }

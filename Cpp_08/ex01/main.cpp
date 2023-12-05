@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 15:40:46 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/30 18:50:06 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:56:02 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ int main()
 {
    try
    {
-      Span s = Span(10);
-      
-      Span sp = Span(5);
+      Span s = Span(15);
+
       s.addNumber(6);
       s.addNumber(3);
       s.addNumber(17);
@@ -27,9 +26,9 @@ int main()
       std::cout << s.shortestSpan() << std::endl;
       std::cout << s.longestSpan() << std::endl;
 
-      std::vector<int> vec1(5);
-      while(vec1.size() < 5)
-         vec1.push_back(vec1.size());
+      std::vector<int> vec1;
+      while(vec1.size() < 10)
+         vec1.push_back(vec1.size() + 1);
       s.addNumbers<std::vector<int> >(vec1.begin(), vec1.end());
    }
    catch (std::exception & e)

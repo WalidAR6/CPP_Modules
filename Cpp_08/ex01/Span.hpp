@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 15:40:52 by waraissi          #+#    #+#             */
-/*   Updated: 2023/11/30 18:50:51 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:27:46 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,13 @@ class Span
             size_t size = std::distance(begin, end);
             if (vec.size() + size > (size_t)num)
                 throw std::runtime_error("THERE ARE ALREADY N ELEMENTS STORED!!!");
-            vec.insert(vec.end() - 1, begin, end);
+            vec.insert(vec.end(), begin, end);
+        }
+
+        void printVecElement()
+        {
+            for (std::vector<int>::iterator it = vec.begin(); it != vec.end(); it++)
+                std::cout << *it << std::endl;
         }
 };
 
