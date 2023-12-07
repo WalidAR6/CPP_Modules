@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 01:09:45 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/07 19:42:00 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/07 20:13:50 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ class MutantStack : public std::stack<T>
             return this->c.end();
         }
 
-        reverse_iterator rbegin() const
+        reverse_iterator rbegin()
         {
             return this->c.rbegin();
         }
