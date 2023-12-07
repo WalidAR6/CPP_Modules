@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 15:40:49 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/05 15:49:18 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/07 19:00:32 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,9 @@ int Span::shortestSpan()
     std::sort(vec.begin(), vec.end());
     int tmp = 0;
     int res = *(vec.begin() + 1) - *vec.begin();
-    size_t i = vec.size();
-    for (std::vector<int>::iterator it = vec.end() - 1; i > 1; it--,i--)
+    for (std::vector<int>::reverse_iterator it = vec.rbegin(); it != vec.rend() -  1 ; it++)
     {
-        tmp = *it - *(it - 1);
+        tmp = *it - *(it + 1);
         if (tmp < res)
             res = tmp;
     }
