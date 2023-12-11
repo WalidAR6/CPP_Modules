@@ -35,4 +35,4 @@ test.cpp
 *.pdf
 *.c
 .vscode
-.txt
+*.txt
