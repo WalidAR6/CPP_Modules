@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 23:14:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/14 00:28:33 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/14 01:13:06 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 # include <_stdio.h>
 # include <_types/_intmax_t.h>
 # include <algorithm>
-#include <climits>
+# include <climits>
 # include <cstddef>
 # include <cstdio>
 # include <cstring>
 # include <fstream>
 # include <iostream>
-#include <locale>
+# include <locale>
 # include <map>
-#include <ostream>
+# include <ostream>
 # include <sstream>
 # include <stdexcept>
 # include <string>
 # include <sys/_types/_size_t.h>
 # include <utility>
-#include <valarray>
+# include <valarray>
 
 std::map<std::string, double> DataWrapper::map;
 
@@ -173,12 +173,12 @@ int lineComponent(std::string line, int *sign)
     std::string subline(line);
     int count = 0;
 
-    tmp = strtok((char *)subline.c_str(), "|");
+    tmp = strtok((char *)subline.c_str(), "| ");
     while (tmp != NULL)
     {
         count++;
         if (count == 1) {
-            if (strlen(tmp) != 11 || countChar(tmp, '-') != 2) {
+            if (strlen(tmp) != 10 || countChar(tmp, '-') != 2) {
                 std::cerr << "Error : bad input => " << line << std::endl;
                 return 0;
             }
@@ -187,7 +187,12 @@ int lineComponent(std::string line, int *sign)
             if (*(tmp + 1) == '-')
                 *sign = 1;
         }
-        tmp = strtok(NULL, "|");
+        tmp = strtok(NULL, "| ");
+    }
+    if (count != 2)
+    {
+        std::cerr << "Error : bad input => " << line << std::endl;
+        return 0;
     }
     return 1;
 }
