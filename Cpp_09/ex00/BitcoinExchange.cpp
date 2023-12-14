@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 23:14:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/14 02:29:22 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/14 15:53:20 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,13 +184,12 @@ int lineComponent(std::string line, int *sign)
             }
         }
         else {
-            if (*(tmp + 1) == '-')
+            if (*tmp == '-')
                 *sign = 1;
         }
         tmp = strtok(NULL, "| ");
     }
-    if (count != 2)
-    {
+    if (count != 2) {
         std::cerr << "Error : bad input => " << line << std::endl;
         return 0;
     }
@@ -262,4 +261,3 @@ void DataWrapper::inputHandler(Date &date)
             break;
     }
 }
-
