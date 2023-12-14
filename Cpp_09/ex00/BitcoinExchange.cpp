@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 23:14:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/14 01:13:06 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/14 01:30:26 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,7 +204,7 @@ double multiply_(Date &date, std::map<std::string, double> &map)
     std::string comKey = date.year+"-"+date.month+"-"+date.day;
     lwrbnd = map.lower_bound(comKey);
     if (lwrbnd == map.end())
-        return value * 47115.93;
+        return value * map.rbegin()->second;
     return value * lwrbnd->second;
 }
 
