@@ -6,20 +6,20 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:31:37 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/15 01:09:24 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:04:04 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "RPN.hpp"
-#include <_ctype.h>
-#include <cstddef>
-#include <cstdlib>
-#include <cstring>
-#include <iostream>
-#include <sstream>
-#include <stack>
-#include <string.h>
-#include <sys/_types/_size_t.h>
+# include <_ctype.h>
+# include <cstddef>
+# include <cstdlib>
+# include <cstring>
+# include <iostream>
+# include <sstream>
+# include <stack>
+# include <string.h>
+# include <sys/_types/_size_t.h>
 
 std::stack<int> RPN::stack;
 
@@ -35,7 +35,6 @@ int     convert(char c)
 
 int     stackOperation(char c)
 {
-
     int val1 = RPN::stack.top();
     RPN::stack.pop();
     int val2 = RPN::stack.top();
@@ -57,8 +56,7 @@ int     reverseNotation(std::string arg)
 {
     int     res = 0;
     char    *tmp = strtok((char *)arg.c_str(), " ");
-    while (tmp != NULL)
-    {
+    while (tmp != NULL) {
         if (isdigit(*tmp))
             RPN::stack.push(convert(*tmp));
         else if (strchr("+-/*", *tmp)) {
