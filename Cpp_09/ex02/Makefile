@@ -1,0 +1,27 @@
+NAME = PmergeMe 
+
+FLAG = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
+CC = c++
+
+SRC = main.cpp \
+		PmergeMe.cpp
+
+OBJ = $(SRC:.cpp=.o)
+
+all: $(NAME)
+
+%.o:%.cpp PmergeMe.hpp
+	$(CC) $(FLAG) -c $< -o $@
+
+$(NAME):$(OBJ)
+	$(CC) $(FLAG) $(OBJ) -o $(NAME)
+
+clean:
+	rm -rf $(OBJ)
+
+fclean: clean
+	rm -rf $(NAME)
+
+re: fclean all
+
+.PHONY: all re fclean clean
