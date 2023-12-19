@@ -6,18 +6,22 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:08:23 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/16 19:34:21 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/19 21:06:47 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PMERGEME_H
 # define PMERGEME_H
 
-#include <deque>
+# include <deque>
 # include <iostream>
 # include <vector>
 
 # define vec PmergeMe::mainVec
+# define PendVec PmergeMe::pendVec
+
+# define deq PmergeMe::maindeq
+# define PendDeq PmergeMe::penddeq
 class PmergeMe
 {
     private:
@@ -27,12 +31,18 @@ class PmergeMe
         ~PmergeMe();
     public:
         static int strugler;
+        static std::vector<int> jacob;
         static std::vector<int> mainVec;
+        static std::vector<int> pendVec;
         static std::deque<int>  maindeq;
+        static std::deque<int>  penddeq;
 };
 
 int     convert(std::string arg);
-void    startSorting();
+void    swap(int &num1, int &num2);
+void    startSorting_v();
+void    startSorting_d();
 void    printVec();
+void    printDeq();
 
 #endif
