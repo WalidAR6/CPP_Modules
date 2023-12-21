@@ -6,30 +6,11 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 23:14:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/14 15:53:20 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/21 22:39:52 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "BitcoinExchange.hpp"
-# include <_ctype.h>
-# include <_stdio.h>
-# include <_types/_intmax_t.h>
-# include <algorithm>
-# include <climits>
-# include <cstddef>
-# include <cstdio>
-# include <cstring>
-# include <fstream>
-# include <iostream>
-# include <locale>
-# include <map>
-# include <ostream>
-# include <sstream>
-# include <stdexcept>
-# include <string>
-# include <sys/_types/_size_t.h>
-# include <utility>
-# include <valarray>
 
 std::map<std::string, double> DataWrapper::map;
 
@@ -70,7 +51,7 @@ void DataWrapper::fillMap()
         std::getline(data, line);
         key = line.substr(0, line.find(','));
         if (key != "date" && !key.empty())
-            value = std::stod(line.substr(line.find(',') + 1, line.size()));
+            value = convert<double>(line.substr(line.find(',') + 1, line.size()));
         insert(key, value);
         if (data.eof())
             break;
@@ -208,6 +189,22 @@ double multiply_(Date &date, std::map<std::string, double> &map)
     return value * lwrbnd->second;
 }
 
+void output(Date &date, std::map<std::string, double> &map, int val, std::string &line)
+{
+    if (val == -2)
+        std::cerr << "Error : not a positive number." << std::endl;
+    else if (val == -3)
+        std::cerr << "Error : too large number." << std::endl;
+    else if (val == -1)
+        std::cerr << "Error : bad input => " << line << std::endl;
+    else
+        std::cout   << date.year    << "-"
+                    << date.month   << "-"
+                    << date.day     << " => "
+                    << date.value   << " = "
+                    << multiply_(date, map) << std::endl;
+}
+
 void parseDateValues(std::string line, Date &date, std::map<std::string, double> &map)
 {
     std::string tm(line);
@@ -231,14 +228,7 @@ void parseDateValues(std::string line, Date &date, std::map<std::string, double>
                 }
                 tmp = strtok(NULL, "-| ");
             }
-            if (val == -2)
-                std::cerr << "Error : not a positive number." << std::endl;
-            else if (val == -3)
-                std::cerr << "Error : too large number." << std::endl;
-            else if (val == -1)
-                std::cerr << "Error : bad input => " << line << std::endl;
-            else
-                std::cout << date.year << "-" << date.month << "-" << date.day << " => " << date.value << " = " << multiply_(date, map) << std::endl;
+            output(date, map, val, line);
         }
         return ;
     }
@@ -255,7 +245,7 @@ void DataWrapper::inputHandler(Date &date)
     {
         std::getline(fileName, line);
         if (line.empty())
-            continue;   
+            continue;
         parseDateValues(line, date, map);
         if (fileName.eof())
             break;

@@ -6,14 +6,11 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 23:14:44 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/13 21:19:57 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/21 22:40:02 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "BitcoinExchange.hpp"
-#include <cstddef>
-#include <exception>
-#include <stdexcept>
 
 int main(int ac, char **av)
 {

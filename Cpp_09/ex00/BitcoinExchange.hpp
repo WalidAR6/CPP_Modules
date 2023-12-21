@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 23:14:52 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/14 00:28:40 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/21 22:40:29 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <fstream>
 # include <iostream>
 # include <map>
-# include <string>
+# include <exception>
+# include <sstream>
 
 struct Date {
     std::string year;
