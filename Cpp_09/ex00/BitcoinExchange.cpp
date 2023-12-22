@@ -6,11 +6,13 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 23:14:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/21 22:39:52 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:20:25 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "BitcoinExchange.hpp"
+#include <algorithm>
+#include <string>
 
 std::map<std::string, double> DataWrapper::map;
 
@@ -104,7 +106,7 @@ int is_all_degit(std::string str)
 {
     for (size_t i = 0; i < str.size(); i++)
     {
-        if (!isdigit(str[i]))
+        if (!isdigit(str[i]) && str[i] != '.')
             return 0;
     }
     return 1;
@@ -137,11 +139,14 @@ int valuesValidator(Date &date, std::string &subline, int sign, int count)
         } 
         date.day = subline;
     } else if (count == 4) {
-        if (!is_all_degit(subline) && !(subline.find(".") < subline.size()))
+        std::string tmp = subline;
+        if (subline[subline.size() - 1] == 'f')
+            tmp = subline.erase(subline.size() - 1);
+        if (!is_all_degit(tmp) || (tmp.find(".") != tmp.rfind(".") && tmp.find(".") < tmp.size()))
             return -1;
         if (sign)
             return -2;
-        if (convert<long>(subline) > 1000)
+        if (convert<long>(tmp) > 1000)
             return -3;
         date.value = subline;
     }
@@ -181,11 +186,16 @@ double multiply_(Date &date, std::map<std::string, double> &map)
 {
     double value = convert<double>(date.value);
     std::map<std::string, double>::iterator lwrbnd;
+    // std::map<std::string, double>::iterator it = map.begin();
+    // it++;
     std::string comKey = date.year+"-"+date.month+"-"+date.day;
     lwrbnd = map.lower_bound(comKey);
+    // if (lwrbnd == it)
+    //     std::cout << lwrbnd->first << std::endl;
     if (lwrbnd == map.end())
         return value * map.rbegin()->second;
-    lwrbnd--;
+    if (lwrbnd->first != "2009-01-02")
+        lwrbnd--;
     return value * lwrbnd->second;
 }
 
