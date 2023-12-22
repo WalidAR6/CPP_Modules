@@ -6,19 +6,15 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:09:20 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/19 21:02:29 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/22 22:39:47 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "PmergeMe.hpp"
-#include <ctime>
-#include <iomanip>
-#include <sys/_types/_clock_t.h>
-#include <sys/_types/_time_t.h>
 
-void    vector_(clock_t &start, clock_t &end, int ac, char **av)
+void    vector_(timeval &tv_start_v, timeval &tv_end_v, int ac, char **av)
 {
-    start = clock();
+    gettimeofday(&tv_start_v, NULL);
     for (int idx = 1; idx < ac; idx++) {
         int i = idx - 1;
         vec.push_back(convert(av[idx]));
@@ -35,15 +31,15 @@ void    vector_(clock_t &start, clock_t &end, int ac, char **av)
         vec.erase(vec.begin() + vec.size() - 1);
     }
     startSorting_v();
-    end = clock();
+    gettimeofday(&tv_end_v, NULL);
     std::cout << "\nAfter  : ";
     printVec();
     std::cout << "\n";
 }
 
-void    deque_(clock_t &start, clock_t &end, int ac, char **av)
+void    deque_(timeval &tv_start_d, timeval &tv_end_d, int ac, char **av)
 {
-    start = clock();
+    gettimeofday(&tv_start_d, NULL);
     for (int idx = 1; idx < ac; idx++) {
         int i = idx - 1;
         deq.push_back(convert(av[idx]));
@@ -58,19 +54,19 @@ void    deque_(clock_t &start, clock_t &end, int ac, char **av)
         deq.erase(deq.begin() + deq.size() - 1);
     }
     startSorting_d();
-    end = clock();
+    gettimeofday(&tv_end_d, NULL);
 }
 
 int main(int ac, char **av)
 {
-    clock_t start_v, end_v;
-    clock_t start_d, end_d;
+    struct timeval tv_start_v, tv_end_v;
+    struct timeval tv_start_d, tv_end_d;
     if (ac == 1)
         return (std::cerr << "Error" << std::endl, 0);
-    vector_(start_v, end_v, ac, av);
-    deque_(start_d, end_d, ac, av);
-    double res_v = ((double)end_v - start_v) / 1000000;
-    double res_d = ((double)end_d - start_d) / 1000000;
-    std::cout << "Time to process a range of " << vec.size() << " elements with std::vector<int> : " << std::fixed << std::setprecision(5) << res_v << " us" << std::endl;
-    std::cout << "Time to process a range of " << deq.size() << " elements with std::deque<int>  : " << std::fixed << std::setprecision(5) << res_d << " us" << std::endl;
+    vector_(tv_start_v, tv_end_v, ac, av);
+    deque_(tv_start_d, tv_end_d, ac, av);
+    double res_v = (tv_end_v.tv_sec * 1000000 + tv_end_v.tv_usec) - (tv_start_v.tv_sec * 1000000 + tv_start_v.tv_usec);
+    double res_d = (tv_end_d.tv_sec * 1000000 + tv_end_d.tv_usec) - (tv_start_d.tv_sec * 1000000 + tv_start_d.tv_usec);
+    std::cout << "Time to process a range of " << vec.size() << " elements with std::vector<int> : "  << res_v << " us" << std::endl;
+    std::cout << "Time to process a range of " << deq.size() << " elements with std::deque<int>  : "  << res_d << " us" << std::endl;
 }

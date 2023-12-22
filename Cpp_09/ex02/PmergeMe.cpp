@@ -6,24 +6,21 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:09:07 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/19 21:07:15 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/22 22:40:34 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <algorithm>
-#include <cstddef>
-#include <deque>
-#include <sstream>
+#include <cstdlib>
 #include <sys/_types/_size_t.h>
-#include <vector>
+#include <sys/resource.h>
 
 std::vector<int>    PmergeMe::jacob;
 std::vector<int>    PmergeMe::mainVec;
 std::vector<int>    PmergeMe::pendVec;
 std::deque<int>     PmergeMe::maindeq;
 std::deque<int>     PmergeMe::penddeq;
-int                 PmergeMe::strugler;
+int                 PmergeMe::strugler = -1;
 
 int     convert(std::string arg)
 {
@@ -42,20 +39,27 @@ void    swap(int &num1, int &num2)
     num2 = tmp;
 }
 
-void    insertSort_v()
+//VECTOR SORT
+
+void    insertSort_v(size_t size)
 {
-    int j;
-    int res;
-    for (size_t idx = 2; idx < vec.size(); idx += 2) {
-        res = vec[idx];
-        j = idx - 2;
-        while (j >= 0 && vec[j] > res) {
-            swap(vec[j + 2], vec[j]);
-            swap(vec[j + 3], vec[j + 1]);
-            j -= 2;
-        }
+    if (size <= 1)
+        return ;
+
+    insertSort_v(size - 1);
+    
+    if (size % 2 != 0)
+        return ;
+
+    int res = vec[size];
+    int j = size - 2;
+    
+    while (j >= 0 && vec[j] > res)
+    {
+        swap(vec[j + 2], vec[j]);
+        swap(vec[j + 3], vec[j + 1]);
+        j -= 2;
     }
-    swap(vec[0], vec[1]);
 }
 
 void    pendToSecVec_v()
@@ -75,7 +79,7 @@ void    pendToSecVec_v()
 
 void    fill_jacob_sequence_v()
 {
-    if (!PmergeMe::pendVec.size())
+    if (!PendVec.size())
         return;
     int num1 = 0;
     int num2 = 1;
@@ -86,7 +90,7 @@ void    fill_jacob_sequence_v()
         int tmp = res;
         num1 = num2;
         num2 = tmp;
-        while ((size_t)res > PmergeMe::pendVec.size())
+        while ((size_t)res > PendVec.size())
             res--;
         if (std::find(PmergeMe::jacob.begin(), PmergeMe::jacob.end(), res) == PmergeMe::jacob.end())
             PmergeMe::jacob.push_back(res);
@@ -96,7 +100,7 @@ void    fill_jacob_sequence_v()
             PmergeMe::jacob.push_back(res);
             res--;
         }
-        if ((size_t)tmp > PmergeMe::pendVec.size())
+        if ((size_t)tmp > PendVec.size())
             break;
     }
 }
@@ -106,7 +110,7 @@ void    last_sort_v()
     int value;
     for (size_t idx = 0; idx < PmergeMe::jacob.size(); idx++)
     {
-        value = PmergeMe::pendVec.at(PmergeMe::jacob[idx] - 1);
+        value = PendVec.at(PmergeMe::jacob[idx] - 1);
         vec.insert(std::lower_bound(vec.begin(),vec.end(), value), value);
     }
     if (PmergeMe::strugler >= 0)
@@ -115,26 +119,35 @@ void    last_sort_v()
 
 void    startSorting_v()
 {
-    insertSort_v();
+    insertSort_v(vec.size() - 1);
+    swap(vec[0], vec[1]);
     pendToSecVec_v();
     fill_jacob_sequence_v();
     last_sort_v();
 }
 
-void    insertSort_d()
+
+//DEQUE SORT
+
+void    insertSort_d(size_t size)
 {
-    int j;
-    int res;
-    for (size_t idx = 2; idx < deq.size(); idx += 2) {
-        res = deq[idx];
-        j = idx - 2;
-        while (j >= 0 && deq[j] > res) {
-            swap(deq[j + 2], deq[j]);
-            swap(deq[j + 3], deq[j + 1]);
-            j -= 2;
-        }
+    if (size <= 1)
+        return ;
+
+    insertSort_v(size - 1);
+    
+    if (size % 2 != 0)
+        return ;
+
+    int res = deq[size];
+    int j = size - 2;
+    
+    while (j >= 0 && deq[j] > res)
+    {
+        swap(deq[j + 2], deq[j]);
+        swap(deq[j + 3], deq[j + 1]);
+        j -= 2;
     }
-    swap(deq[0], deq[1]);
 }
 
 void    pendToSecVec_d()
@@ -194,7 +207,8 @@ void    last_sort_d()
 
 void    startSorting_d()
 {
-    insertSort_d();
+    insertSort_d(deq.size() - 1);
+    swap(deq[0], deq[1]);
     pendToSecVec_d();
     fill_jacob_sequence_d();
     last_sort_d();
@@ -203,7 +217,7 @@ void    startSorting_d()
 void    printVec()
 {
     std::vector<int>::iterator it;
-    for (it = PmergeMe::mainVec.begin(); it != PmergeMe::mainVec.end(); it++)
+    for (it = vec.begin(); it != vec.end(); it++)
         std::cout << *it << " ";
 }
 
