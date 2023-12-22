@@ -6,20 +6,12 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:31:37 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/22 16:05:22 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/22 18:15:04 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "RPN.hpp"
-# include <_ctype.h>
-# include <cstddef>
-# include <cstdlib>
-# include <cstring>
-# include <iostream>
-# include <sstream>
-# include <stack>
-# include <string.h>
-# include <sys/_types/_size_t.h>
+#include <string.h>
 
 std::stack<int> RPN::stack;
 
@@ -45,6 +37,8 @@ int     stackOperation(char c)
         case '-':
             return (val2 - val1);
         case '/':
+            if (val1 == 0)
+                std::cerr << "Deviding by zero!!!" << std::endl, std::exit(1);
             return (val2 / val1);
         case '*':
             return (val1 * val2);
@@ -57,9 +51,11 @@ int     reverseNotation(std::string arg)
     int     res = 0;
     char    *tmp = strtok((char *)arg.c_str(), " ");
     while (tmp != NULL) {
-        if (isdigit(*tmp))
+        if (strlen(tmp) == 2 || (!isdigit(*tmp) && !strchr("+-/*", *tmp)))
+            std::cerr << "Error" << std::endl, std::exit(1);
+        else if (isdigit(*tmp))
             RPN::stack.push(convert(*tmp));
-        else if (strchr("+-/*", *tmp)) {
+        if (strchr("+-/*", *tmp)) {
             if (RPN::stack.size() < 2)
                 std::cerr << "Error" << std::endl, std::exit(1);
             res = stackOperation(*tmp);

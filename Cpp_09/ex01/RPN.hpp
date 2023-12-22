@@ -6,16 +6,16 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:30:56 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/15 01:08:21 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/22 17:34:25 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RPN_H
 # define RPN_H
 
-#include <algorithm>
 # include <iostream>
-#include <stack>
+# include <stack>
+# include <sstream>
 
 class RPN
 {
