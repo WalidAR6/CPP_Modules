@@ -6,13 +6,11 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 23:14:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/22 16:20:25 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/22 17:32:45 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "BitcoinExchange.hpp"
-#include <algorithm>
-#include <string>
 
 std::map<std::string, double> DataWrapper::map;
 
@@ -44,7 +42,7 @@ void DataWrapper::fillMap()
 {
     std::string line;
     std::ifstream data("data.csv");
-    if (data.fail())
+    if (data.fail() || data.peek() == data.eof())
         throw std::runtime_error("Error: could not open file.");
     std::string key;
     double value;
@@ -115,7 +113,7 @@ int is_all_degit(std::string str)
 int valuesValidator(Date &date, std::string &subline, int sign, int count)
 {
     if (count == 1) {
-        if (subline.size() != 4 || !is_all_degit(subline))
+        if (subline.size() != 4 || !is_all_degit(subline) || convert<int>(subline) < 2009)
             return -1;
         date.year = subline;
     } else if (count == 2) {
@@ -125,24 +123,26 @@ int valuesValidator(Date &date, std::string &subline, int sign, int count)
     } else if (count == 3) {
         int mounth = convert<int>(date.month);
         int day = convert<int>(subline);
+        if (day < 2 && convert<int>(date.year) < 2009)
+            return -1;
         if (mounth == 1 || mounth == 3 || mounth == 5 || mounth == 7 || mounth == 8 || mounth == 10 || mounth == 12) {
             if (day > 31 || day == 0)
                 return -1;
         } else if (mounth == 2) {
             if (convert<int>(date.year) % 4 || convert<int>(date.year) % 400 != convert<int>(date.year) % 100) {
-                if (convert<int>(subline) > 28)
+                if (day > 28)
+                    return -1;
+            } else {
+                if (day > 29 || day == 0)
                     return -1;
             }
-        } else {
-            if (day > 30 || day == 0)
-                return -1;
-        } 
+        }
         date.day = subline;
     } else if (count == 4) {
         std::string tmp = subline;
         if (subline[subline.size() - 1] == 'f')
             tmp = subline.erase(subline.size() - 1);
-        if (!is_all_degit(tmp) || (tmp.find(".") != tmp.rfind(".") && tmp.find(".") < tmp.size()))
+        if (!is_all_degit(tmp) || (tmp.find(".") != tmp.rfind(".") && tmp.find(".") < tmp.size()) || tmp.empty())
             return -1;
         if (sign)
             return -2;
@@ -186,12 +186,8 @@ double multiply_(Date &date, std::map<std::string, double> &map)
 {
     double value = convert<double>(date.value);
     std::map<std::string, double>::iterator lwrbnd;
-    // std::map<std::string, double>::iterator it = map.begin();
-    // it++;
     std::string comKey = date.year+"-"+date.month+"-"+date.day;
     lwrbnd = map.lower_bound(comKey);
-    // if (lwrbnd == it)
-    //     std::cout << lwrbnd->first << std::endl;
     if (lwrbnd == map.end())
         return value * map.rbegin()->second;
     if (lwrbnd->first != "2009-01-02")
