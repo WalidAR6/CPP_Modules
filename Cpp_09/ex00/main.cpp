@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 23:14:44 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/21 22:40:02 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/23 16:41:55 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int main(int ac, char **av)
         DataWrapper data(av[1]);
         Date date;
         data.inputHandler(date);
-        // data.printMap();
     }
     catch (std::exception & e)
     {

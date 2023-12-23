@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 23:14:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/23 12:21:58 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/23 19:09:36 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ T convert(std::string str)
 {
     T val;
     std::stringstream ss;
-    
+
     ss << str;
     ss >> val;
 
-    return val;
+    return (ss.clear(), val);
 }
 
 void DataWrapper::fillMap()
@@ -58,21 +58,17 @@ void DataWrapper::fillMap()
     double value;
     while (true)
     {
+        if (data.eof())
+            break;
         std::getline(data, line);
         key = line.substr(0, line.find(','));
         if (key != "date" && !key.empty())
+        {
             value = convert<double>(line.substr(line.find(',') + 1, line.size()));
-        insert(key, value);
-        if (data.eof())
-            break;
+            map.insert(std::pair<std::string, double>(key, value));
+        }
     }
     data.close();
-}
-
-void DataWrapper::insert(std::string key, double value)
-{
-    if (key != "date")
-        map.insert(std::pair<std::string, double>(key, value));
 }
 
 void parseFirstLine(std::string &line)
@@ -97,8 +93,9 @@ void parseFirstLine(std::string &line)
             throw std::runtime_error("Error : bad input"); 
         return ;
     }
-    std::cout << "here\n"; throw std::runtime_error("Error : bad input");
+    throw std::runtime_error("Error : bad input");
 }
+
 int countChar(std::string ele, char c)
 {
     int count = 0;
@@ -123,7 +120,7 @@ int is_all_degit(std::string str)
 int valuesValidator(Date &date, std::string &subline, int sign, int count)
 {
     if (count == 1) {
-        if (subline.size() != 4 || !is_all_degit(subline))
+        if (subline.size() != 4 || !is_all_degit(subline) || convert<int>(subline) < convert<int>(DataWrapper::map.begin()->first.substr(0, 4)))
             return -1;
         date.year = subline;
     } else if (count == 2) {
@@ -133,8 +130,8 @@ int valuesValidator(Date &date, std::string &subline, int sign, int count)
     } else if (count == 3) {
         int mounth = convert<int>(date.month);
         int day = convert<int>(subline);
-        // if (day < 2 && convert<int>(date.year) < 2009)
-        //     return -1;
+        if (convert<int>(date.year) <= convert<int>(DataWrapper::map.begin()->first.substr(0, 4)) && day < convert<int>(DataWrapper::map.begin()->first.substr(8, 10)))
+            return -1;
         if (mounth == 1 || mounth == 3 || mounth == 5 || mounth == 7 || mounth == 8 || mounth == 10 || mounth == 12) {
             if (day > 31 || day == 0)
                 return -1;
@@ -152,7 +149,9 @@ int valuesValidator(Date &date, std::string &subline, int sign, int count)
         std::string tmp = subline;
         if (subline[subline.size() - 1] == 'f')
             tmp = subline.erase(subline.size() - 1);
-        if (!is_all_degit(tmp) || (tmp.find(".") != tmp.rfind(".") && tmp.find(".") < tmp.size()) || tmp.empty())
+        if (subline.at(0) == '+' && tmp.size() > 1)
+            tmp = subline.erase(0,1);
+        if (!is_all_degit(tmp) || (tmp.find(".") != tmp.rfind(".") && tmp.find(".") < tmp.size()) || tmp.empty() || sign == 2)
             return -1;
         if (sign)
             return -2;
@@ -161,6 +160,18 @@ int valuesValidator(Date &date, std::string &subline, int sign, int count)
         date.value = subline;
     }
     return 0;
+}
+
+int is_all_zeros(char *str)
+{
+    int i = 0;
+    while (str[i])
+    {
+        if (str[i] != '0')
+            return 0;
+        i++;
+    }
+    return 1;
 }
 
 int lineComponent(std::string line, int *sign)
@@ -182,10 +193,14 @@ int lineComponent(std::string line, int *sign)
         else {
             if (*tmp == '-')
                 *sign = 1;
+            if ((strlen(tmp) == 1 && *tmp == '-') || strchr(tmp + 1, '-'))
+                *sign = 2;
+            if (*tmp == '-' && is_all_zeros(tmp + 1))
+                *sign = 0;
         }
         tmp = strtok(NULL, "| ");
     }
-    if (count != 2) {
+    if (count != 2 || *sign == 2) {
         std::cerr << "Error : bad input => " << line << std::endl;
         return 0;
     }
@@ -195,13 +210,19 @@ int lineComponent(std::string line, int *sign)
 double multiply_(Date &date, std::map<std::string, double> &map)
 {
     double value = convert<double>(date.value);
+    
     std::map<std::string, double>::iterator lwrbnd;
+
     std::string comKey = date.year+"-"+date.month+"-"+date.day;
+            
     lwrbnd = map.lower_bound(comKey);
+    
     if (lwrbnd == map.end())
         return value * map.rbegin()->second;
-    if (lwrbnd != map.begin() && lwrbnd->first != comKey)
+
+    else if (lwrbnd != map.begin() && lwrbnd->first != comKey)
         lwrbnd--;
+
     return value * lwrbnd->second;
 }
 
@@ -259,11 +280,11 @@ void DataWrapper::inputHandler(Date &date)
     parseFirstLine(line);
     while (true)
     {
+        if (fileName.eof())
+            break;
         std::getline(fileName, line);
         if (line.empty())
             continue;
         parseDateValues(line, date, map);
-        if (fileName.eof())
-            break;
     }
 }
