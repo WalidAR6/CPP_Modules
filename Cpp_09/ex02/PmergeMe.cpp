@@ -6,14 +6,11 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:09:07 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/22 22:40:34 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/23 10:15:30 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <cstdlib>
-#include <sys/_types/_size_t.h>
-#include <sys/resource.h>
 
 std::vector<int>    PmergeMe::jacob;
 std::vector<int>    PmergeMe::mainVec;

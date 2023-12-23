@@ -6,12 +6,11 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:31:37 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/22 18:15:04 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/23 10:46:41 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "RPN.hpp"
-#include <string.h>
 
 std::stack<int> RPN::stack;
 
@@ -63,7 +62,5 @@ int     reverseNotation(std::string arg)
         }
         tmp = strtok(NULL, " ");
     }
-    if (RPN::stack.size() != 1)
-        std::cerr << "Error" << std::endl, std::exit(1);
     return RPN::stack.top();
 }

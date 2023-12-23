@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 23:14:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/22 17:32:45 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/23 12:21:58 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,15 @@
 
 std::map<std::string, double> DataWrapper::map;
 
-DataWrapper::DataWrapper(std::string inf) : fileName(inf)
+DataWrapper::DataWrapper(std::string inf) : fileName(inf.c_str())
 {
-    if (fileName.fail())
+     std::stringstream ss;
+    ss << fileName.rdbuf();
+    if (fileName.fail() || ss.str().empty())
         throw std::runtime_error("Error: could not open file.");
+    ss.clear();
+    fileName.close();
+    fileName.open(inf.c_str());
     fillMap();
 }
 
@@ -42,8 +47,13 @@ void DataWrapper::fillMap()
 {
     std::string line;
     std::ifstream data("data.csv");
-    if (data.fail() || data.peek() == data.eof())
+    std::stringstream ss;
+    ss << data.rdbuf();
+    if (data.fail() || ss.str().empty())
         throw std::runtime_error("Error: could not open file.");
+    ss.clear();
+    data.close();
+    data.open("data.csv");
     std::string key;
     double value;
     while (true)
@@ -78,16 +88,16 @@ void parseFirstLine(std::string &line)
         {
             count++;
             if (strcmp(tmp, "date") && strcmp(tmp, "value"))
-                throw std::runtime_error("Error : bad input");
+                throw std::runtime_error("Error : bad input"); 
             if ((!strcmp(tmp, "date") && count != 1) || (!strcmp(tmp, "value") && count != 2))
                 throw std::runtime_error("Error : bad input");
             tmp = strtok(NULL, "| ");
         }
         if (count != 2)
-            throw std::runtime_error("Error : bad input");
+            throw std::runtime_error("Error : bad input"); 
         return ;
     }
-    throw std::runtime_error("Error : bad input");
+    std::cout << "here\n"; throw std::runtime_error("Error : bad input");
 }
 int countChar(std::string ele, char c)
 {
@@ -113,7 +123,7 @@ int is_all_degit(std::string str)
 int valuesValidator(Date &date, std::string &subline, int sign, int count)
 {
     if (count == 1) {
-        if (subline.size() != 4 || !is_all_degit(subline) || convert<int>(subline) < 2009)
+        if (subline.size() != 4 || !is_all_degit(subline))
             return -1;
         date.year = subline;
     } else if (count == 2) {
@@ -123,8 +133,8 @@ int valuesValidator(Date &date, std::string &subline, int sign, int count)
     } else if (count == 3) {
         int mounth = convert<int>(date.month);
         int day = convert<int>(subline);
-        if (day < 2 && convert<int>(date.year) < 2009)
-            return -1;
+        // if (day < 2 && convert<int>(date.year) < 2009)
+        //     return -1;
         if (mounth == 1 || mounth == 3 || mounth == 5 || mounth == 7 || mounth == 8 || mounth == 10 || mounth == 12) {
             if (day > 31 || day == 0)
                 return -1;
@@ -190,7 +200,7 @@ double multiply_(Date &date, std::map<std::string, double> &map)
     lwrbnd = map.lower_bound(comKey);
     if (lwrbnd == map.end())
         return value * map.rbegin()->second;
-    if (lwrbnd->first != "2009-01-02")
+    if (lwrbnd != map.begin() && lwrbnd->first != comKey)
         lwrbnd--;
     return value * lwrbnd->second;
 }
