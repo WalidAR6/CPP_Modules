@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:09:07 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/23 10:15:30 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/25 01:49:42 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void    swap(int &num1, int &num2)
 }
 
 //VECTOR SORT
-
 void    insertSort_v(size_t size)
 {
     if (size <= 1)
@@ -63,7 +62,8 @@ void    pendToSecVec_v()
 {
     int i = 0;
     std::vector<int>::iterator it;
-    
+    if (vec.size() < 2)
+        return ;
     for (it = vec.begin() + 2; it != vec.end(); it++, i++) {
         if (i % 2 != 0)
         {
@@ -117,7 +117,8 @@ void    last_sort_v()
 void    startSorting_v()
 {
     insertSort_v(vec.size() - 1);
-    swap(vec[0], vec[1]);
+    if (vec.size() > 1)
+        swap(vec[0], vec[1]);
     pendToSecVec_v();
     fill_jacob_sequence_v();
     last_sort_v();
@@ -125,7 +126,6 @@ void    startSorting_v()
 
 
 //DEQUE SORT
-
 void    insertSort_d(size_t size)
 {
     if (size <= 1)
@@ -151,7 +151,8 @@ void    pendToSecVec_d()
 {
     int i = 0;
     std::deque<int>::iterator it;
-    
+    if (vec.size() < 2)
+        return ;
     for (it = deq.begin() + 2; it != deq.end(); it++, i++) {
         if (i % 2 != 0)
         {
@@ -205,7 +206,8 @@ void    last_sort_d()
 void    startSorting_d()
 {
     insertSort_d(deq.size() - 1);
-    swap(deq[0], deq[1]);
+    if (deq.size() > 1)
+        swap(deq[0], deq[1]);
     pendToSecVec_d();
     fill_jacob_sequence_d();
     last_sort_d();

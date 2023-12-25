@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 16:09:20 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/23 20:51:44 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/25 01:42:18 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void    vector_(timeval &tv_start_v, timeval &tv_end_v, int ac, char **av)
 {
-    gettimeofday(&tv_start_v, NULL);
     for (int idx = 1; idx < ac; idx++) {
         int i = idx - 1;
         vec.push_back(convert(av[idx]));
@@ -24,12 +23,11 @@ void    vector_(timeval &tv_start_v, timeval &tv_end_v, int ac, char **av)
         }
         i++;
     }
-    std::cout << "Before : ";
-    printVec();
-    if (vec.size() % 2 != 0) {
+    if (vec.size() % 2 != 0 && vec.size() != 1) {
         PmergeMe::strugler = *vec.rbegin();
         vec.erase(vec.begin() + vec.size() - 1);
     }
+    gettimeofday(&tv_start_v, NULL);
     startSorting_v();
     gettimeofday(&tv_end_v, NULL);
     std::cout << "\nAfter  : ";
@@ -39,7 +37,6 @@ void    vector_(timeval &tv_start_v, timeval &tv_end_v, int ac, char **av)
 
 void    deque_(timeval &tv_start_d, timeval &tv_end_d, int ac, char **av)
 {
-    gettimeofday(&tv_start_d, NULL);
     for (int idx = 1; idx < ac; idx++) {
         int i = idx - 1;
         deq.push_back(convert(av[idx]));
@@ -49,10 +46,11 @@ void    deque_(timeval &tv_start_d, timeval &tv_end_d, int ac, char **av)
         }
         i++;
     }
-    if (deq.size() % 2 != 0) {
+    if (deq.size() % 2 != 0 && vec.size() != 1) {
         PmergeMe::strugler = *deq.rbegin();
         deq.erase(deq.begin() + deq.size() - 1);
     }
+    gettimeofday(&tv_start_d, NULL);
     startSorting_d();
     gettimeofday(&tv_end_d, NULL);
 }
@@ -81,7 +79,7 @@ void    arg_parsing(char **av)
     while (av[idx]) {
         if (!is_valid(av[idx])) {
             std::cerr << "Error" << std::endl;
-            exit(0);
+            exit(1);
         }
         idx++;
     }
@@ -94,6 +92,9 @@ int main(int ac, char **av)
     arg_parsing(av);
     struct timeval tv_start_v, tv_end_v;
     struct timeval tv_start_d, tv_end_d;
+    std::cout << "Before : ";
+    for (int i = 1; av[i] != NULL; i++)
+        std::cout << av[i] << " ";
     vector_(tv_start_v, tv_end_v, ac, av);
     deque_(tv_start_d, tv_end_d, ac, av);
     double res_v = (tv_end_v.tv_sec * 1000000 + tv_end_v.tv_usec) - (tv_start_v.tv_sec * 1000000 + tv_start_v.tv_usec);

@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 23:14:50 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/23 19:09:36 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/24 19:07:26 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ std::map<std::string, double> DataWrapper::map;
 
 DataWrapper::DataWrapper(std::string inf) : fileName(inf.c_str())
 {
-     std::stringstream ss;
+    std::stringstream ss;
     ss << fileName.rdbuf();
     if (fileName.fail() || ss.str().empty())
         throw std::runtime_error("Error: could not open file.");
@@ -155,7 +155,7 @@ int valuesValidator(Date &date, std::string &subline, int sign, int count)
             return -1;
         if (sign)
             return -2;
-        if (convert<long>(tmp) > 1000)
+        if (convert<double>(tmp) > 1000)
             return -3;
         date.value = subline;
     }
@@ -214,7 +214,7 @@ double multiply_(Date &date, std::map<std::string, double> &map)
     std::map<std::string, double>::iterator lwrbnd;
 
     std::string comKey = date.year+"-"+date.month+"-"+date.day;
-            
+
     lwrbnd = map.lower_bound(comKey);
     
     if (lwrbnd == map.end())

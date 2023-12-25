@@ -6,7 +6,7 @@
 /*   By: waraissi <waraissi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 00:31:37 by waraissi          #+#    #+#             */
-/*   Updated: 2023/12/23 19:16:37 by waraissi         ###   ########.fr       */
+/*   Updated: 2023/12/24 20:01:02 by waraissi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int     convert(char c)
     
     ss << c;
     ss >> num;
-    return num;
+    return (ss.clear(), num);
 }
 
 int     stackOperation(char c)
@@ -37,7 +37,8 @@ int     stackOperation(char c)
             return (val2 - val1);
         case '/':
             if (val1 == 0)
-                std::cerr << "Deviding by zero!!!" << std::endl, std::exit(1);
+                std::cerr << "Deviding by zero!!!" << std::endl;
+                exit(1);
             return (val2 / val1);
         case '*':
             return (val1 * val2);
@@ -50,19 +51,25 @@ int     reverseNotation(std::string arg)
     int     res = 0;
     char    *tmp = strtok((char *)arg.c_str(), " ");
     while (tmp != NULL) {
-        if (strlen(tmp) == 2 || (!isdigit(*tmp) && !strchr("+-/*", *tmp)))
-            std::cerr << "Error" << std::endl, std::exit(1);
+        if (strlen(tmp) >= 2 || (!isdigit(*tmp) && !strchr("+-/*", *tmp))) {
+            std::cerr << "Error" << std::endl;
+            exit(1);
+        }
         else if (isdigit(*tmp))
             RPN::stack.push(convert(*tmp));
         if (strchr("+-/*", *tmp)) {
-            if (RPN::stack.size() < 2)
-                std::cerr << "Error" << std::endl, std::exit(1);
+            if (RPN::stack.size() < 2) {
+                std::cerr << "Error" << std::endl;
+                exit(1);
+            }
             res = stackOperation(*tmp);
             RPN::stack.push(res);
         }
         tmp = strtok(NULL, " ");
     }
-    if (RPN::stack.empty())
-        std::cerr << "Error" << std::endl, std::exit(1);
+    if (RPN::stack.empty()) {
+        std::cerr << "Error" << std::endl;
+        exit(1);
+    }
     return RPN::stack.top();
 }
