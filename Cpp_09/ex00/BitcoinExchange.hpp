@@ -29,15 +29,13 @@ struct Date {
 
 class DataWrapper
 {
-    private:
-        DataWrapper(const DataWrapper & obj);
-        DataWrapper &operator=(const DataWrapper & obj);
     public:
         static std::map<std::string, double> map;
-        std::ifstream fileName;
-        typedef struct Date  date;
+        static std::ifstream fileName;
         
         DataWrapper(std::string inf);
+        DataWrapper(const DataWrapper & obj);
+        DataWrapper &operator=(const DataWrapper & obj);
         ~DataWrapper();
 
         void fillMap();

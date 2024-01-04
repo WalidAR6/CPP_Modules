@@ -13,9 +13,13 @@
 # include "BitcoinExchange.hpp"
 
 std::map<std::string, double> DataWrapper::map;
+std::ifstream DataWrapper::fileName;
 
-DataWrapper::DataWrapper(std::string inf) : fileName(inf.c_str())
+DataWrapper::DataWrapper(std::string inf)
 {
+    fileName.open(inf.c_str());
+    if (fileName.fail())
+        throw std::runtime_error("Error: could not open file.");
     std::stringstream ss;
     ss << fileName.rdbuf();
     if (fileName.fail() || ss.str().empty())
@@ -24,6 +28,17 @@ DataWrapper::DataWrapper(std::string inf) : fileName(inf.c_str())
     fileName.close();
     fileName.open(inf.c_str());
     fillMap();
+}
+
+DataWrapper::DataWrapper(const DataWrapper & obj)
+{
+    *this = obj;
+}
+
+DataWrapper &DataWrapper::operator=(const DataWrapper & obj)
+{
+    (void)obj;
+    return (*this);
 }
 
 DataWrapper::~DataWrapper()
@@ -137,7 +152,7 @@ int valuesValidator(Date &date, std::string &subline, int sign, int count)
                 return -1;
         } else if (mounth == 2) {
             if (convert<int>(date.year) % 4 || convert<int>(date.year) % 400 != convert<int>(date.year) % 100) {
-                if (day > 28)
+                if (day > 28 || day == 0)
                     return -1;
             } else {
                 if (day > 29 || day == 0)

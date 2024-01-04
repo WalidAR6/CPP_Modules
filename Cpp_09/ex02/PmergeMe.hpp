@@ -36,7 +36,9 @@ class PmergeMe
         ~PmergeMe();
     public:
         static int strugler;
+        static int strugler_d;
         static std::vector<int> jacob;
+        static std::vector<int> jacob_d;
         static std::vector<int> mainVec;
         static std::vector<int> pendVec;
         static std::deque<int>  maindeq;

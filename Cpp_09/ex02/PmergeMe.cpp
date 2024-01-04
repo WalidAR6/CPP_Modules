@@ -13,11 +13,13 @@
 #include "PmergeMe.hpp"
 
 std::vector<int>    PmergeMe::jacob;
+std::vector<int>    PmergeMe::jacob_d;
 std::vector<int>    PmergeMe::mainVec;
 std::vector<int>    PmergeMe::pendVec;
 std::deque<int>     PmergeMe::maindeq;
 std::deque<int>     PmergeMe::penddeq;
 int                 PmergeMe::strugler = -1;
+int                 PmergeMe::strugler_d = -1;
 
 int     convert(std::string arg)
 {
@@ -68,7 +70,7 @@ void    pendToSecVec_v()
         if (i % 2 != 0)
         {
             PendVec.push_back(*it);
-            vec.erase(it);
+            it = vec.erase(it);
             it--;
         }
     }
@@ -105,13 +107,20 @@ void    fill_jacob_sequence_v()
 void    last_sort_v()
 {
     int value;
+    std::vector<int>::iterator it;
     for (size_t idx = 0; idx < PmergeMe::jacob.size(); idx++)
     {
         value = PendVec.at(PmergeMe::jacob[idx] - 1);
-        vec.insert(std::lower_bound(vec.begin(),vec.end(), value), value);
+        it = std::lower_bound(vec.begin(),vec.begin() + PmergeMe::jacob[idx] + idx + 1, value);
+        if (it != vec.end())
+            vec.insert(it, value);
     }
     if (PmergeMe::strugler >= 0)
-        vec.insert(std::lower_bound(vec.begin(),vec.end(), PmergeMe::strugler),PmergeMe::strugler);
+    {
+        it = std::lower_bound(vec.begin(),vec.end(), PmergeMe::strugler);
+        if (it != vec.end())
+            vec.insert(it, PmergeMe::strugler);
+    }
 }
 
 void    startSorting_v()
@@ -124,14 +133,13 @@ void    startSorting_v()
     last_sort_v();
 }
 
-
 //DEQUE SORT
 void    insertSort_d(size_t size)
 {
     if (size <= 1)
         return ;
 
-    insertSort_v(size - 1);
+    insertSort_d(size - 1);
     
     if (size % 2 != 0)
         return ;
@@ -151,13 +159,13 @@ void    pendToSecVec_d()
 {
     int i = 0;
     std::deque<int>::iterator it;
-    if (vec.size() < 2)
+    if (deq.size() < 2)
         return ;
     for (it = deq.begin() + 2; it != deq.end(); it++, i++) {
         if (i % 2 != 0)
         {
             PendDeq.push_back(*it);
-            deq.erase(it);
+            it = deq.erase(it);
             it--;
         }
     }
@@ -178,12 +186,12 @@ void    fill_jacob_sequence_d()
         num2 = tmp;
         while ((size_t)res > PendDeq.size())
             res--;
-        if (std::find(PmergeMe::jacob.begin(), PmergeMe::jacob.end(), res) == PmergeMe::jacob.end())
-            PmergeMe::jacob.push_back(res);
+        if (std::find(PmergeMe::jacob_d.begin(), PmergeMe::jacob_d.end(), res) == PmergeMe::jacob_d.end())
+            PmergeMe::jacob_d.push_back(res);
         res--;
-        while (std::find(PmergeMe::jacob.begin(), PmergeMe::jacob.end(), res) == PmergeMe::jacob.end() && res != 0)
+        while (std::find(PmergeMe::jacob_d.begin(), PmergeMe::jacob_d.end(), res) == PmergeMe::jacob_d.end() && res != 0)
         {
-            PmergeMe::jacob.push_back(res);
+            PmergeMe::jacob_d.push_back(res);
             res--;
         }
         if ((size_t)tmp > PendDeq.size())
@@ -194,13 +202,20 @@ void    fill_jacob_sequence_d()
 void    last_sort_d()
 {
     int value;
-    for (size_t idx = 0; idx < PmergeMe::jacob.size(); idx++)
+    std::deque<int>::iterator it;
+    for (size_t idx = 0; idx < PmergeMe::jacob_d.size(); idx++)
     {
-        value = PendDeq.at(PmergeMe::jacob[idx] - 1);
-        deq.insert(std::lower_bound(deq.begin(),deq.end(), value), value);
+        value = PendDeq.at(PmergeMe::jacob_d[idx] - 1);
+        it = std::lower_bound(deq.begin(),deq.begin() + PmergeMe::jacob_d[idx] + idx + 1, value);
+        if (it != deq.end())
+            deq.insert(it, value);
     }
-    if (PmergeMe::strugler >= 0)
-        deq.insert(std::lower_bound(deq.begin(),deq.end(), PmergeMe::strugler),PmergeMe::strugler);
+    if (PmergeMe::strugler_d >= 0)
+    {
+        it = std::lower_bound(deq.begin(),deq.end(), PmergeMe::strugler_d);
+        if (it != deq.end())
+            deq.insert(it, PmergeMe::strugler_d);
+    }
 }
 
 void    startSorting_d()
@@ -226,3 +241,4 @@ void    printDeq()
     for (it = deq.begin(); it != deq.end(); it++)
         std::cout << *it << " ";
 }
+
